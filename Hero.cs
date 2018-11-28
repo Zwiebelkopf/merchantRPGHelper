@@ -7,27 +7,29 @@ using System.Threading.Tasks;
 namespace Merchant_RPG {
     public class Hero {
         public readonly int Id;
-        public readonly string Name;
+        public string Name;
         public int Level;
-        public readonly double Strength;
-        public readonly double Intelligence;
-        public readonly double Dexterity;
+        public double Strength;
+        public double Intelligence;
+        public double Dexterity;
 
-        public readonly double StartHP;
-        public readonly double StartAttack;
-        public readonly double StartMagicAttack;
-        public readonly double StartAccuracy;
-        public readonly double StartCriticalRate;
-        public readonly double StartDefense;
-        public readonly double StartMagicDefense;
+        public double StartHP;
+        public double StartAttack;
+        public double StartMagicAttack;
+        public double StartAccuracy;
+        public double StartCriticalRate;
+        public double StartDefense;
+        public double StartMagicDefense;
 
-        public readonly double LevelHP;
-        public readonly double LevelAttack;
-        public readonly double LevelMagicAttack;
-        public readonly double LevelAccuracy;
-        public readonly double LevelCriticalRate;
-        public readonly double LevelDefense;
-        public readonly double LevelMagicDefense;
+        public double LevelHP;
+        public double LevelAttack;
+        public double LevelMagicAttack;
+        public double LevelAccuracy;
+        public double LevelCriticalRate;
+        public double LevelDefense;
+        public double LevelMagicDefense;
+
+        public Dictionary<ItemSlot, Item> Equipment;
 
         public Hero(int id, string name, double strength, double intelligence, double dexterity, double startHP, double startAttack, double startMagicAttack, double startAccuracy, double startCriticalRate, double startDefense, double startMagicDefense, double levelHP, double levelAttack, double levelMagicAttack, double levelAccuracy, double levelCriticalRate, double levelDefense, double levelMagicDefense) {
             this.Id = id;
@@ -50,37 +52,54 @@ namespace Merchant_RPG {
             this.LevelCriticalRate = levelCriticalRate;
             this.LevelDefense = levelDefense;
             this.LevelMagicDefense = levelMagicDefense;
+
+            //Library bibo = new Library();
+            Equipment = new Dictionary<ItemSlot, Item>(); /*{
+                { "Weapon",  bibo.Items.First(x => x.Slot == ItemSlot.Weapon) },
+                { "Head", bibo.Items.First(x => x.Slot == ItemSlot.Helm) },
+                { "Chest",  bibo.Items.First(x => x.Slot == ItemSlot.Chest) },
+                { "Hand", bibo.Items.First(x => x.Slot == ItemSlot.Gloves) },
+                { "Foot",  bibo.Items.First(x => x.Slot == ItemSlot.Boots) },
+                { "Trinket", bibo.Items.First(x => x.Slot == ItemSlot.Trinket) }
+            };*/
+        }
+
+        public Hero(Hero another) {
+            this.Id = another.Id;
+            this.Name = another.Name;
+            this.Level = another.Level;
+            this.Strength = another.Strength;
+            this.Intelligence = another.Intelligence;
+            this.Dexterity = another.Dexterity;
+            this.StartHP = another.StartHP;
+            this.StartAttack = another.StartAttack;
+            this.StartMagicAttack = another.StartMagicAttack;
+            this.StartAccuracy = another.StartAccuracy;
+            this.StartCriticalRate = another.StartCriticalRate;
+            this.StartDefense = another.StartDefense;
+            this.StartMagicDefense = another.StartMagicDefense;
+            this.LevelHP = another.LevelHP;
+            this.LevelAttack = another.LevelAttack;
+            this.LevelMagicAttack = another.LevelMagicAttack;
+            this.LevelAccuracy = another.LevelAccuracy;
+            this.LevelCriticalRate = another.LevelCriticalRate;
+            this.LevelDefense = another.LevelDefense;
+            this.LevelMagicDefense = another.LevelMagicDefense;
+            Equipment = another.Equipment;
+        }
+
+        public void Equip(ItemSlot slot, Item what) {
+            if (Equipment.ContainsKey(slot)){
+                Equipment[slot] = what;
+            }
+            else{
+                Equipment.Add(slot, what);
+            }
+            
         }
 
         public override string ToString() {
             return Name;
         }
     }
-
-    /*public class HeroChooserValue {
-        private string dataName ;
-        private int dataValue ;
-
-        public HeroChooserValue(Hero hero) {
-            DataName = hero.Name;
-            DataValue = hero.Id;
-        }
-
-        public string DataName
-        {
-            get{ return dataName ;}
-            set{ dataName = value ; }
-        }
-
-        public int DataValue
-        {
-            get{ return dataValue ;}
-            set{ dataValue = value ; }
-        }
-
-        public override string ToString()
-        {
-            return dataName ;
-        }
-    }*/
 }

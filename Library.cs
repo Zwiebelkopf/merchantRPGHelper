@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Merchant_RPG {
-    public static class Library {
+    public class Library {
         //Hero(name, strength, intelligence, dexterity, 
         //     startHP, startAttack, startMagicAttack, startAccuracy, startCriticalRate, startDefense, startMagicDefense, 
         //     levelHP, levelAttack, levelMagicAttack, levelAccuracy, levelCriticalRate, levelDefense, levelMagicDefense)
-        public static Dictionary<string, Hero> Heroes2 = new Dictionary<string, Hero>{
-            
+        /*public Dictionary<string, Hero> Heroes = {
             { "Warrior", new Hero(0, "Warrior", 5, 1, 4, 100, 5, 1, 2, 1, 14, 8, 10, 0.4, 0.1, 0.3, 0, 1, 0.4) },
             { "Rogue", new Hero(1, "Rogue", 4, 1, 5, 90, 5, 1, 2, 5, 9, 8, 8, 0.6, 0.1, 0.5, 0.2, 0.5, 0.4)},
             { "Mage", new Hero(2, "Mage", 1, 6, 3, 80, 1, 5, 2, 1, 7, 10, 7, 0.1, 0.9, 0.3, 0, 0.4, 0.4) },
@@ -29,34 +28,67 @@ namespace Merchant_RPG {
 			{ "Paladin Prestige 1", new Hero(15, "Paladin Prestige 1", 5, 5, 5, 100, 3, 3, 2, 1, 8, 14, 15, 0.6, 0.6, 0.6, 0, 0.8, 2) },
 			{ "Dark Knight Prestige 1", new Hero(16, "Dark Knight Prestige 1", 7, 7, 2, 80, 3, 3, 2, 1, 9, 8, 11, 0.9, 0.9, 0.7, 0, 0.8, 0.8) },
             { "Bard Prestige 1", new Hero(17, "Bard Prestige 1", 5, 5, 5,60, 2, 2, 2, 1, 6, 6,13, 0.6, 0.6, 0.7, 0, 0.4, 0.4) },
-        };
+        };*/
 
-        //Hero(id, name, strength, intelligence, dexterity, 
-        //      startHP, startAttack, startMagicAttack, startAccuracy, startCriticalRate, startDefense, startMagicDefense, 
-        //      levelHP, levelAttack, levelMagicAttack, levelAccuracy, levelCriticalRate, levelDefense, levelMagicDefense) {
-        public static Hero[] Heroes = new Hero[] {
-			new Hero(0, "Warrior", 5, 1, 4, 			100, 5, 1, 2, 1, 14, 8, 			10, 0.4, 0.1, 0.3, 0, 1, 0.4),
-			new Hero(1, "Rogue", 4, 1, 5, 				90, 5, 1, 2, 5, 9, 8, 				8, 0.6, 0.1, 0.5, 0.2, 0.5, 0.4),
-			new Hero(2, "Mage", 1, 6, 3, 				80, 1, 5, 2, 1, 7, 10, 				7, 0.1, 0.9, 0.3, 0, 0.4, 0.4),
-			new Hero(3, "Berserker", 6, 1, 3, 			90, 5, 1, 2, 1, 10, 7, 				8, 0.8, 0.1, 0.3, 0, 0.5, 0.4),
-			new Hero(4, "Cleric", 1, 5, 4, 				80, 1, 5, 2, 1, 7, 10, 				7, 0.1, 0.6, 0.6, 0, 0.4, 0.4),
-			new Hero(5, "Assassin", 3, 1, 6, 			90, 5, 1, 2, 10, 9, 8, 				8, 0.4, 0.1, 0.7, 0.2, 0.5, 0.4),
-			new Hero(6, "Paladin", 4, 4, 2, 			100, 3, 3, 2, 1, 8, 14, 			10, 0.3, 0.3, 0.3, 0, 0.4, 1),
-			new Hero(7, "Dark Knight", 5, 5, 0, 		80, 3, 3, 2, 1, 9, 8, 				7, 0.45, 0.55, 0.3, 0, 0.4, 0.4),
-            new Hero(8, "Bard", 2, 2, 2,                60, 2, 2, 2, 1, 6, 6,               7, 0.3, 0.3, 0.3, 0, 0.2, 0.2),
+        public Hero[] Heroes = new Hero[] {
+			new Hero(0, "Warrior", 5, 1, 4,
+                100, 5, 1, 2, 1, 14, 8,
+                10, 0.4, 0.1, 0.3, 0, 1, 0.4),
+			new Hero(1, "Rogue", 4, 1, 5,
+                90, 5, 1, 2, 5, 9, 8,
+                8, 0.6, 0.1, 0.5, 0.2, 0.5, 0.4),
+			new Hero(2, "Mage", 1, 6, 3,
+                80, 1, 5, 2, 1, 7, 10,
+                7, 0.1, 0.9, 0.3, 0, 0.4, 0.4),
+			new Hero(3, "Berserker", 6, 1, 3,
+                90, 5, 1, 2, 1, 10, 7,
+                8, 0.8, 0.1, 0.3, 0, 0.5, 0.4),
+			new Hero(4, "Cleric", 1, 5, 4,
+                80, 1, 5, 2, 1, 7, 10,
+                7, 0.1, 0.6, 0.6, 0, 0.4, 0.4),
+			new Hero(5, "Assassin", 3, 1, 6,
+                90, 5, 1, 2, 10, 9, 8,
+                8, 0.4, 0.1, 0.7, 0.2, 0.5, 0.4),
+			new Hero(6, "Paladin", 4, 4, 2,
+                100, 3, 3, 2, 1, 8, 14,
+                10, 0.3, 0.3, 0.3, 0, 0.4, 1),
+			new Hero(7, "Dark Knight", 5, 5, 0,
+                80, 3, 3, 2, 1, 9, 8,
+                7, 0.45, 0.55, 0.3, 0, 0.4, 0.4),
+            new Hero(8, "Bard", 2, 2, 2,
+                60, 2, 2, 2, 1, 6, 6,
+                7, 0.3, 0.3, 0.3, 0, 0.2, 0.2),
             ///////////////////////////////////////////
-            new Hero(9, "Warrior Prestige 1", 7, 1, 6, 				100, 5, 1, 2, 1, 14, 8, 			15, 1, 0.2, 0.6, 0, 1.8, 0.8),
-			new Hero(10, "Rogue Prestige 1", 6, 1, 8, 				90, 5, 1, 2, 5, 9, 8, 				12, 1.2, 0.2, 1, 0.2, 1, 0.8),
-			new Hero(11, "Mage Prestige 1", 1, 9, 5, 				80, 1, 5, 2, 1, 7, 10, 				11, 0.2, 1.8, 0.6, 0, 0.8, 0.8),
-			new Hero(12, "Berserker Prestige 1", 9, 1, 5, 			90, 5, 1, 2, 1, 10, 7, 				12, 1.8, 0.2, 0.6, 0, 1, 0.8),
-			new Hero(13, "Cleric Prestige 1", 1, 8, 6, 				80, 1, 5, 2, 1, 7, 10, 				11, 0.2, 1.2, 1.2, 0, 0.8, 0.8),
-			new Hero(14, "Assassin Prestige 1", 5, 1, 8, 			90, 5, 1, 2, 10, 9, 8, 				12, 1, 0.2, 1.2, 0.4, 1, 0.8),
-			new Hero(15, "Paladin Prestige 1", 5, 5, 5, 			100, 3, 3, 2, 1, 8, 14, 			15, 0.6, 0.6, 0.6, 0, 0.8, 2),
-			new Hero(16, "Dark Knight Prestige 1", 7, 7, 2, 		80, 3, 3, 2, 1, 9, 8, 				11, 0.9, 0.9, 0.7, 0, 0.8, 0.8),
-            new Hero(17, "Bard Prestige 1", 5, 5, 5,                60, 2, 2, 2, 1, 6, 6,               13, 0.6, 0.6, 0.7, 0, 0.4, 0.4),
+            new Hero(9, "Warrior Prestige 1", 7, 1, 6,
+                100, 5, 1, 2, 1, 14, 8,
+                15, 1, 0.2, 0.6, 0, 1.8, 0.8),
+			new Hero(10, "Rogue Prestige 1", 6, 1, 8,
+                90, 5, 1, 2, 5, 9, 8,
+                12, 1.2, 0.2, 1, 0.2, 1, 0.8),
+			new Hero(11, "Mage Prestige 1", 1, 9, 5,
+                80, 1, 5, 2, 1, 7, 10,
+                11, 0.2, 1.8, 0.6, 0, 0.8, 0.8),
+			new Hero(12, "Berserker Prestige 1", 9, 1, 5,
+                90, 5, 1, 2, 1, 10, 7,
+                12, 1.8, 0.2, 0.6, 0, 1, 0.8),
+			new Hero(13, "Cleric Prestige 1", 1, 8, 6,
+                80, 1, 5, 2, 1, 7, 10,
+                11, 0.2, 1.2, 1.2, 0, 0.8, 0.8),
+			new Hero(14, "Assassin Prestige 1", 5, 1, 8,
+                90, 5, 1, 2, 10, 9, 8,
+                12, 1, 0.2, 1.2, 0.4, 1, 0.8),
+			new Hero(15, "Paladin Prestige 1", 5, 5, 5,
+                100, 3, 3, 2, 1, 8, 14,
+                15, 0.6, 0.6, 0.6, 0, 0.8, 2),
+			new Hero(16, "Dark Knight Prestige 1", 7, 7, 2,
+                80, 3, 3, 2, 1, 9, 8,
+                11, 0.9, 0.9, 0.7, 0, 0.8, 0.8),
+            new Hero(17, "Bard Prestige 1", 5, 5, 5,
+                60, 2, 2, 2, 1, 6, 6,
+                13, 0.6, 0.6, 0.7, 0, 0.4, 0.4),
 		};
 
-        public static Monster[] Monsters = {
+        public Monster[] Monsters = {
 			new Monster("Forest Gathering", 1, 0, 0, 0, 5, 5, 20),
 			new Monster("Moss Golem", 2, 15, 5, 5, 10, 5, 40),
 			new Monster("Forest Treant", 2, 5, 15, 5, 5, 10, 40),
@@ -127,10 +159,19 @@ namespace Merchant_RPG {
 			new Monster("Hel", 40, 200, 540, 120, 180, 280, 4200, maxPartyMembers: 6),
 		};
 
-        public static Skill[] Skills = {
+        public Skill[] Skills = {
             new Skill("Might", false, raisepatk:1.1),
             new Skill("Vitality", false, raisepatk:1.06, raisepdef: 1.12),
             new Skill("Juggernaut", false, raisehp:1.25),
+        };
+
+        public Item[] Items = {
+            new Item("Worn Weapon", 0, ItemSlot.Weapon),
+            new Item("Worn Helm", 0, ItemSlot.Helm),
+            new Item("Worn Chest", 0, ItemSlot.Chest),
+            new Item("Worn Gloves", 0, ItemSlot.Gloves),
+            new Item("Worn Boots", 0, ItemSlot.Boots),
+            new Item("Worn Trinket", 0, ItemSlot.Trinket),
         };
     }
 }

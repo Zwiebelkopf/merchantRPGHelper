@@ -60,9 +60,29 @@
             this.att_acc = new System.Windows.Forms.TextBox();
             this.att_matk = new System.Windows.Forms.TextBox();
             this.att_patk = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.Equip_weapon_label = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.Equip_helm_label = new System.Windows.Forms.Label();
+            this.Equip_chest_label = new System.Windows.Forms.Label();
+            this.Equip_gloves_label = new System.Windows.Forms.Label();
+            this.Equip_boots_label = new System.Windows.Forms.Label();
+            this.Equip_trinket_label = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -145,7 +165,7 @@
             // 
             // LevelPicker
             // 
-            this.LevelPicker.Location = new System.Drawing.Point(212, 67);
+            this.LevelPicker.Location = new System.Drawing.Point(32, 67);
             this.LevelPicker.Name = "LevelPicker";
             this.LevelPicker.Size = new System.Drawing.Size(120, 20);
             this.LevelPicker.TabIndex = 5;
@@ -155,7 +175,7 @@
             // HeroNameLabel
             // 
             this.HeroNameLabel.AutoSize = true;
-            this.HeroNameLabel.Location = new System.Drawing.Point(209, 40);
+            this.HeroNameLabel.Location = new System.Drawing.Point(29, 37);
             this.HeroNameLabel.Name = "HeroNameLabel";
             this.HeroNameLabel.Size = new System.Drawing.Size(58, 13);
             this.HeroNameLabel.TabIndex = 6;
@@ -169,7 +189,7 @@
             this.groupBox1.Controls.Add(this.att_dex);
             this.groupBox1.Controls.Add(this.att_int);
             this.groupBox1.Controls.Add(this.att_str);
-            this.groupBox1.Location = new System.Drawing.Point(375, 40);
+            this.groupBox1.Location = new System.Drawing.Point(195, 17);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(297, 87);
             this.groupBox1.TabIndex = 7;
@@ -244,7 +264,7 @@
             this.groupBox2.Controls.Add(this.att_acc);
             this.groupBox2.Controls.Add(this.att_matk);
             this.groupBox2.Controls.Add(this.att_patk);
-            this.groupBox2.Location = new System.Drawing.Point(212, 133);
+            this.groupBox2.Location = new System.Drawing.Point(32, 127);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(460, 187);
             this.groupBox2.TabIndex = 8;
@@ -395,15 +415,189 @@
             this.att_patk.Size = new System.Drawing.Size(100, 20);
             this.att_patk.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(24, 214);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(171, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(593, 376);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.LevelPicker);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.HeroNameLabel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(585, 350);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Attribute";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.Equip_trinket_label);
+            this.tabPage2.Controls.Add(this.Equip_boots_label);
+            this.tabPage2.Controls.Add(this.Equip_gloves_label);
+            this.tabPage2.Controls.Add(this.Equip_chest_label);
+            this.tabPage2.Controls.Add(this.Equip_helm_label);
+            this.tabPage2.Controls.Add(this.button9);
+            this.tabPage2.Controls.Add(this.button8);
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.Equip_weapon_label);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(585, 350);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Equipment";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(585, 350);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Skills";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(21, 16);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Weapon";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // Equip_weapon_label
+            // 
+            this.Equip_weapon_label.AutoSize = true;
+            this.Equip_weapon_label.Location = new System.Drawing.Point(117, 16);
+            this.Equip_weapon_label.Name = "Equip_weapon_label";
+            this.Equip_weapon_label.Size = new System.Drawing.Size(35, 13);
+            this.Equip_weapon_label.TabIndex = 2;
+            this.Equip_weapon_label.Text = "label1";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(21, 73);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Helm";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(21, 130);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Chest";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(21, 187);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "Gloves";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(21, 244);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 6;
+            this.button8.Text = "Boots";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(21, 301);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 7;
+            this.button9.Text = "Trinket";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // Equip_helm_label
+            // 
+            this.Equip_helm_label.AutoSize = true;
+            this.Equip_helm_label.Location = new System.Drawing.Point(117, 73);
+            this.Equip_helm_label.Name = "Equip_helm_label";
+            this.Equip_helm_label.Size = new System.Drawing.Size(35, 13);
+            this.Equip_helm_label.TabIndex = 8;
+            this.Equip_helm_label.Text = "label1";
+            // 
+            // Equip_chest_label
+            // 
+            this.Equip_chest_label.AutoSize = true;
+            this.Equip_chest_label.Location = new System.Drawing.Point(117, 130);
+            this.Equip_chest_label.Name = "Equip_chest_label";
+            this.Equip_chest_label.Size = new System.Drawing.Size(35, 13);
+            this.Equip_chest_label.TabIndex = 9;
+            this.Equip_chest_label.Text = "label2";
+            // 
+            // Equip_gloves_label
+            // 
+            this.Equip_gloves_label.AutoSize = true;
+            this.Equip_gloves_label.Location = new System.Drawing.Point(117, 187);
+            this.Equip_gloves_label.Name = "Equip_gloves_label";
+            this.Equip_gloves_label.Size = new System.Drawing.Size(35, 13);
+            this.Equip_gloves_label.TabIndex = 10;
+            this.Equip_gloves_label.Text = "label3";
+            // 
+            // Equip_boots_label
+            // 
+            this.Equip_boots_label.AutoSize = true;
+            this.Equip_boots_label.Location = new System.Drawing.Point(117, 244);
+            this.Equip_boots_label.Name = "Equip_boots_label";
+            this.Equip_boots_label.Size = new System.Drawing.Size(35, 13);
+            this.Equip_boots_label.TabIndex = 11;
+            this.Equip_boots_label.Text = "label4";
+            // 
+            // Equip_trinket_label
+            // 
+            this.Equip_trinket_label.AutoSize = true;
+            this.Equip_trinket_label.Location = new System.Drawing.Point(117, 301);
+            this.Equip_trinket_label.Name = "Equip_trinket_label";
+            this.Equip_trinket_label.Size = new System.Drawing.Size(35, 13);
+            this.Equip_trinket_label.TabIndex = 12;
+            this.Equip_trinket_label.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 347);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.HeroNameLabel);
-            this.Controls.Add(this.LevelPicker);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(764, 388);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.HeroChooser);
@@ -418,6 +612,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,6 +661,23 @@
         private System.Windows.Forms.TextBox att_acc;
         private System.Windows.Forms.TextBox att_matk;
         private System.Windows.Forms.TextBox att_patk;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label Equip_weapon_label;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label Equip_trinket_label;
+        private System.Windows.Forms.Label Equip_boots_label;
+        private System.Windows.Forms.Label Equip_gloves_label;
+        private System.Windows.Forms.Label Equip_chest_label;
+        private System.Windows.Forms.Label Equip_helm_label;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }
 
