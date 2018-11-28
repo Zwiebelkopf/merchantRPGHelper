@@ -39,7 +39,7 @@ namespace Merchant_RPG {
             if (HeroChooser.SelectedItem != null) {
                 HeroList.Items.Add(Library.Heroes2[HeroChooser.SelectedItem.ToString()]);
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -48,14 +48,14 @@ namespace Merchant_RPG {
         }
 
         private void HeroList_SelectedIndexChanged_1(object sender, EventArgs e) {
-            if(HeroList.SelectedIndex >= 0) {
+            if (HeroList.SelectedIndex >= 0) {
                 activeHero = Library.Heroes2[HeroList.SelectedItem.ToString()];
+                selectedHeroList = HeroList.SelectedIndex;
                 HeroNameLabel.Text = activeHero.Name;
                 LevelPicker.SelectedIndex = activeHero.Level - 1;
                 att_str.Text = activeHero.Strength.ToString();
                 att_int.Text = activeHero.Intelligence.ToString();
                 att_dex.Text = activeHero.Dexterity.ToString();
-                selectedHeroList = HeroList.SelectedIndex;
                 updateStats();
             }
         }
@@ -68,13 +68,28 @@ namespace Merchant_RPG {
             att_mdef.Text = ((activeHero.Level - 1) * activeHero.LevelMagicDefense + activeHero.StartMagicDefense).ToString();
             att_pdef.Text = ((activeHero.Level - 1) * activeHero.LevelDefense + activeHero.StartDefense).ToString();
             att_dmg.Text = (double.Parse(att_patk.Text) + double.Parse(att_matk.Text)).ToString();
-            
+
         }
 
         private void LevelPicker_SelectedItemChanged(object sender, EventArgs e) {
             activeHero.Level = int.Parse(LevelPicker.Text);
             updateStats();
             HeroList.Items[selectedHeroList] = activeHero;
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            Hero myHero = Library.Heroes2["Warrior"];
+            Monster enemy = Library.Monsters.First(x => x.Name == "Forest Gathering");
+            double enemyHP = enemy.HP;
+            double runden = 0;
+
+            while (enemyHP > 0) {
+                double dmg = myHero.Level * myHero.LevelAttack;
+                double def = enemy.Defense;
+                enemyHP -= dmg;
+                runden++;
+            }
+            Console.WriteLine("HUHU");
         }
     }
 }
