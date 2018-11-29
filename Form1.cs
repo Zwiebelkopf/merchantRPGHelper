@@ -14,6 +14,7 @@ namespace Merchant_RPG {
         private Hero activeHero;
         private int selectedHeroList;
         private Library bibo = new Library();
+        private EditItem editItem;
 
         public Form1() {
             InitializeComponent();
@@ -42,12 +43,12 @@ namespace Merchant_RPG {
             if (HeroChooser.SelectedItem != null) {
                 Hero temp = new Hero(bibo.Heroes.First(x => x.Name.Equals(HeroChooser.SelectedItem.ToString())));
 
-                temp.Equip(ItemSlot.Weapon, bibo.Items.First(x => x.Name.Equals("Worn Weapon")));
-                temp.Equip(ItemSlot.Helm, bibo.Items.First(x => x.Name.Equals("Worn Helm")));
-                temp.Equip(ItemSlot.Chest, bibo.Items.First(x => x.Name.Equals("Worn Chest")));
-                temp.Equip(ItemSlot.Gloves, bibo.Items.First(x => x.Name.Equals("Worn Gloves")));
-                temp.Equip(ItemSlot.Boots, bibo.Items.First(x => x.Name.Equals("Worn Boots")));
-                temp.Equip(ItemSlot.Trinket, bibo.Items.First(x => x.Name.Equals("Worn Trinket")));
+                temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Weapon")));
+                temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Helm")));
+                temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Chest")));
+                temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Gloves")));
+                temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Boots")));
+                temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Trinket")));
 
                 HeroList.Items.Add(temp);
             }
@@ -128,10 +129,53 @@ namespace Merchant_RPG {
         private void button4_Click(object sender, EventArgs e) {
             // Change Weapon
             Equip_weapon_label.Text = "Dies ist ein langer Text um zu prüfen,\nwas genau das Programm damit macht.";
-            
+            editItem = new EditItem(this, ItemSlot.Weapon, activeHero.Equipment[ItemSlot.Weapon]);
+            editItem.Show();
+        }
+        private void button5_Click(object sender, EventArgs e) {
+            // Change Helm
+            editItem = new EditItem(this, ItemSlot.Helm, activeHero.Equipment[ItemSlot.Helm]);
+            editItem.Show();
+        }
+        
+        private void button6_Click(object sender, EventArgs e) {
+            // Change Chest
+            editItem = new EditItem(this, ItemSlot.Chest, activeHero.Equipment[ItemSlot.Chest]);
+            editItem.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e) {
+            // Change Gloves
+            editItem = new EditItem(this, ItemSlot.Gloves, activeHero.Equipment[ItemSlot.Gloves]);
+            editItem.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e) {
+            // Change Boots
+            editItem = new EditItem(this, ItemSlot.Boots, activeHero.Equipment[ItemSlot.Boots]);
+            editItem.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e) {
+            // Change Trinket
+            editItem = new EditItem(this, ItemSlot.Trinket, activeHero.Equipment[ItemSlot.Trinket]);
+            editItem.Show();
+            HeroList.Enabled = false;
+        }
+
+        public void CreateItemAndEquip(Item item) {
+            if (item != null) {
+                activeHero.Equip(item);
+                updateEquipment();
+            }
+            HeroList.Enabled = true;
         }
 
         #endregion
+
+        
+
+       
 
     }
 }

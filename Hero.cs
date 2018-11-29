@@ -88,18 +88,31 @@ namespace Merchant_RPG {
             Equipment = another.Equipment;
         }
 
-        public void Equip(ItemSlot slot, Item what) {
-            if (Equipment.ContainsKey(slot)){
-                Equipment[slot] = what;
+        public void Equip(Item what) {
+            if (Equipment.ContainsKey(what.Slot)){
+                Equipment[what.Slot] = what;
             }
             else{
-                Equipment.Add(slot, what);
+                Equipment.Add(what.Slot, what);
             }
             
         }
 
         public override string ToString() {
             return Name;
+        }
+
+        public double GetRealAttack() {
+            // Wert ohne Equipment
+            double erg = StartAttack + LevelAttack * (Level-1);
+
+            foreach (var entry in Equipment) {
+                // reiner Attack Value
+                erg += entry.Value.Attack;
+                // Strength Modifier
+            }
+
+            return erg;
         }
     }
 }
