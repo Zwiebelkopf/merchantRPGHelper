@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Merchant_RPG {
+    [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(Equipment))]
     public class Hero {
         public readonly int Id;
         public string Name;
@@ -29,7 +31,12 @@ namespace Merchant_RPG {
         public double LevelDefense;
         public double LevelMagicDefense;
 
-        public Dictionary<ItemSlot, Item> Equipment;
+        //public Dictionary<ItemSlot, Item> Equipment_old;
+        public Equipment Inventar;
+
+        public Hero() {
+
+        }
 
         public Hero(int id, string name, double strength, double intelligence, double dexterity, double startHP, double startAttack, double startMagicAttack, double startAccuracy, double startCriticalRate, double startDefense, double startMagicDefense, double levelHP, double levelAttack, double levelMagicAttack, double levelAccuracy, double levelCriticalRate, double levelDefense, double levelMagicDefense) {
             this.Id = id;
@@ -52,16 +59,7 @@ namespace Merchant_RPG {
             this.LevelCriticalRate = levelCriticalRate;
             this.LevelDefense = levelDefense;
             this.LevelMagicDefense = levelMagicDefense;
-
-            //Library bibo = new Library();
-            Equipment = new Dictionary<ItemSlot, Item>(); /*{
-                { "Weapon",  bibo.Items.First(x => x.Slot == ItemSlot.Weapon) },
-                { "Head", bibo.Items.First(x => x.Slot == ItemSlot.Helm) },
-                { "Chest",  bibo.Items.First(x => x.Slot == ItemSlot.Chest) },
-                { "Hand", bibo.Items.First(x => x.Slot == ItemSlot.Gloves) },
-                { "Foot",  bibo.Items.First(x => x.Slot == ItemSlot.Boots) },
-                { "Trinket", bibo.Items.First(x => x.Slot == ItemSlot.Trinket) }
-            };*/
+            Inventar = new Equipment();
         }
 
         public Hero(Hero another) {
@@ -85,32 +83,135 @@ namespace Merchant_RPG {
             this.LevelCriticalRate = another.LevelCriticalRate;
             this.LevelDefense = another.LevelDefense;
             this.LevelMagicDefense = another.LevelMagicDefense;
-            Equipment = another.Equipment;
+            Inventar = another.Inventar;
         }
 
         public void Equip(Item what) {
-            if (Equipment.ContainsKey(what.Slot)){
-                Equipment[what.Slot] = what;
-            }
-            else{
-                Equipment.Add(what.Slot, what);
-            }
-            
+            Inventar.Equip(what);
         }
 
         public override string ToString() {
             return Name;
         }
 
-        public double GetRealAttack() {
-            // Wert ohne Equipment
-            double erg = StartAttack + LevelAttack * (Level-1);
+        public double GetRealValue(string what) {
+            double erg = 0;
 
-            foreach (var entry in Equipment) {
-                // reiner Attack Value
-                erg += entry.Value.Attack;
-                // Strength Modifier
+            switch (what) {
+                case "Attack":
+                    erg = StartAttack + LevelAttack * (Level - 1);
+                    break;
+                case "MagicAttack":
+                    erg += StartMagicAttack + LevelMagicAttack * (Level - 1);
+                    break;
+                case "Accuracy":
+                    erg += StartAccuracy + LevelAccuracy * (Level - 1);
+                    break;
+                case "Defense":
+                    erg += StartDefense + LevelDefense * (Level - 1);
+                    break;
+                case "MagicDefense":
+                    erg += StartMagicDefense + LevelMagicDefense * (Level - 1);
+                    break;
+                case "Critical":
+                    erg += StartCriticalRate + LevelCriticalRate * (Level - 1);
+                    break;
             }
+
+
+            foreach (var entry in Inventar.ToArray()) {
+                switch (what) {
+                    case "Attack":
+                        // reiner Attack Value
+                        erg += entry.Attack + entry.Strength;
+                        break;
+                    case "MagicAttack":
+                        erg += entry.MagicAttack + entry.Intelligence;
+                        break;
+                    case "Accuracy":
+                        erg += entry.Accuracy + entry.Dexterity;
+                        break;
+                    case "Defense":
+                        erg += entry.Defense;
+                        break;
+                    case "MagicDefense":
+                        erg += entry.MagicDefense;
+                        break;
+                    case "Critical":
+                        erg += entry.CriticalRate;
+                        break;
+                }
+                
+            }
+
+            return erg;
+        }
+
+    }
+
+    [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(Item))]
+    public class Equipment {
+
+        public Item weapon;
+        public Item helm;
+        public Item chest;
+        public Item gloves;
+        public Item boots;
+        public Item trinket;
+
+        public Equipment() {}
+
+        public Item GetSlot(ItemSlot slot) {
+            switch (slot) {
+                case ItemSlot.Weapon:
+                    return weapon;
+                case ItemSlot.Helm:
+                    return helm;
+                case ItemSlot.Chest:
+                    return chest;
+                case ItemSlot.Gloves:
+                    return gloves;
+                case ItemSlot.Boots:
+                    return boots;
+                case ItemSlot.Trinket:
+                    return trinket;
+            }
+            return null;
+        }
+
+        public void Equip(Item what){
+            switch(what.Slot){
+                case ItemSlot.Weapon:
+                    weapon = what;
+                    break;
+                case ItemSlot.Helm:
+                    helm = what;
+                    break;
+                case ItemSlot.Chest:
+                    chest = what;
+                    break;
+                case ItemSlot.Gloves:
+                    gloves = what;
+                    break;
+                case ItemSlot.Boots:
+                    boots = what;
+                    break;
+                case ItemSlot.Trinket:
+                    trinket = what;
+                    break;
+            }
+        }
+
+        public Item[] ToArray() {
+            Item[] erg = new Item[6];
+
+            erg[0] = weapon;
+            erg[1] = helm;
+            erg[2] = chest;
+            erg[3] = gloves;
+            erg[4] = boots;
+            erg[5] = trinket;
 
             return erg;
         }

@@ -27,6 +27,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HeroList = new System.Windows.Forms.ListBox();
             this.HeroChooser = new System.Windows.Forms.ComboBox();
@@ -77,6 +80,9 @@
             this.Equip_weapon_label = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.slot1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,20 +113,49 @@
             // 
             // openToolStripMenuItem
             // 
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.slot1ToolStripMenuItem1,
+            this.slot2ToolStripMenuItem1,
+            this.slot3ToolStripMenuItem1});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.slot1ToolStripMenuItem,
+            this.slot2ToolStripMenuItem,
+            this.slot3ToolStripMenuItem});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // slot1ToolStripMenuItem
+            // 
+            this.slot1ToolStripMenuItem.Name = "slot1ToolStripMenuItem";
+            this.slot1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slot1ToolStripMenuItem.Text = "Slot 1";
+            this.slot1ToolStripMenuItem.Click += new System.EventHandler(this.slot1ToolStripMenuItem_Click);
+            // 
+            // slot2ToolStripMenuItem
+            // 
+            this.slot2ToolStripMenuItem.Name = "slot2ToolStripMenuItem";
+            this.slot2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slot2ToolStripMenuItem.Text = "Slot 2";
+            this.slot2ToolStripMenuItem.Click += new System.EventHandler(this.slot2ToolStripMenuItem_Click);
+            // 
+            // slot3ToolStripMenuItem
+            // 
+            this.slot3ToolStripMenuItem.Name = "slot3ToolStripMenuItem";
+            this.slot3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slot3ToolStripMenuItem.Text = "Slot 3";
+            this.slot3ToolStripMenuItem.Click += new System.EventHandler(this.slot3ToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -595,6 +630,27 @@
             this.tabPage3.Text = "Skills";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // slot1ToolStripMenuItem1
+            // 
+            this.slot1ToolStripMenuItem1.Name = "slot1ToolStripMenuItem1";
+            this.slot1ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.slot1ToolStripMenuItem1.Text = "Slot 1";
+            this.slot1ToolStripMenuItem1.Click += new System.EventHandler(this.slot1ToolStripMenuItem1_Click);
+            // 
+            // slot2ToolStripMenuItem1
+            // 
+            this.slot2ToolStripMenuItem1.Name = "slot2ToolStripMenuItem1";
+            this.slot2ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.slot2ToolStripMenuItem1.Text = "Slot 2";
+            this.slot2ToolStripMenuItem1.Click += new System.EventHandler(this.slot2ToolStripMenuItem1_Click);
+            // 
+            // slot3ToolStripMenuItem1
+            // 
+            this.slot3ToolStripMenuItem1.Name = "slot3ToolStripMenuItem1";
+            this.slot3ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.slot3ToolStripMenuItem1.Text = "Slot 3";
+            this.slot3ToolStripMenuItem1.Click += new System.EventHandler(this.slot3ToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,6 +739,12 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem slot1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem slot2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem slot3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem slot1ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem slot2ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem slot3ToolStripMenuItem1;
     }
 }
 
