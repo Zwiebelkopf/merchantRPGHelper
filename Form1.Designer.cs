@@ -26,6 +26,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.slot3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.slot1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.slot2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,9 +66,10 @@
             this.att_acc = new System.Windows.Forms.TextBox();
             this.att_matk = new System.Windows.Forms.TextBox();
             this.att_patk = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.maxHP = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Equip_trinket_label = new System.Windows.Forms.Label();
             this.Equip_boots_label = new System.Windows.Forms.Label();
@@ -80,15 +84,32 @@
             this.Equip_weapon_label = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.slot1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.slot2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.slot3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SkillDescription = new System.Windows.Forms.Label();
+            this.SkillChooser = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Round1Chooser = new System.Windows.Forms.ComboBox();
+            this.Round2Chooser = new System.Windows.Forms.ComboBox();
+            this.Round3Chooser = new System.Windows.Forms.ComboBox();
+            this.Round4Chooser = new System.Windows.Forms.ComboBox();
+            this.Round5Chooser = new System.Windows.Forms.ComboBox();
+            this.Round1Description = new System.Windows.Forms.Label();
+            this.Round2Description = new System.Windows.Forms.Label();
+            this.Round3Description = new System.Windows.Forms.Label();
+            this.Round4Description = new System.Windows.Forms.Label();
+            this.Round5Description = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -118,8 +139,29 @@
             this.slot2ToolStripMenuItem1,
             this.slot3ToolStripMenuItem1});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
+            // 
+            // slot1ToolStripMenuItem1
+            // 
+            this.slot1ToolStripMenuItem1.Name = "slot1ToolStripMenuItem1";
+            this.slot1ToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.slot1ToolStripMenuItem1.Text = "Slot 1";
+            this.slot1ToolStripMenuItem1.Click += new System.EventHandler(this.slot1ToolStripMenuItem1_Click);
+            // 
+            // slot2ToolStripMenuItem1
+            // 
+            this.slot2ToolStripMenuItem1.Name = "slot2ToolStripMenuItem1";
+            this.slot2ToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.slot2ToolStripMenuItem1.Text = "Slot 2";
+            this.slot2ToolStripMenuItem1.Click += new System.EventHandler(this.slot2ToolStripMenuItem1_Click);
+            // 
+            // slot3ToolStripMenuItem1
+            // 
+            this.slot3ToolStripMenuItem1.Name = "slot3ToolStripMenuItem1";
+            this.slot3ToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.slot3ToolStripMenuItem1.Text = "Slot 3";
+            this.slot3ToolStripMenuItem1.Click += new System.EventHandler(this.slot3ToolStripMenuItem1_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -128,34 +170,34 @@
             this.slot2ToolStripMenuItem,
             this.slot3ToolStripMenuItem});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // slot1ToolStripMenuItem
             // 
             this.slot1ToolStripMenuItem.Name = "slot1ToolStripMenuItem";
-            this.slot1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slot1ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.slot1ToolStripMenuItem.Text = "Slot 1";
             this.slot1ToolStripMenuItem.Click += new System.EventHandler(this.slot1ToolStripMenuItem_Click);
             // 
             // slot2ToolStripMenuItem
             // 
             this.slot2ToolStripMenuItem.Name = "slot2ToolStripMenuItem";
-            this.slot2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slot2ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.slot2ToolStripMenuItem.Text = "Slot 2";
             this.slot2ToolStripMenuItem.Click += new System.EventHandler(this.slot2ToolStripMenuItem_Click);
             // 
             // slot3ToolStripMenuItem
             // 
             this.slot3ToolStripMenuItem.Name = "slot3ToolStripMenuItem";
-            this.slot3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.slot3ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.slot3ToolStripMenuItem.Text = "Slot 3";
             this.slot3ToolStripMenuItem.Click += new System.EventHandler(this.slot3ToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -200,7 +242,7 @@
             // 
             // LevelPicker
             // 
-            this.LevelPicker.Location = new System.Drawing.Point(32, 67);
+            this.LevelPicker.Location = new System.Drawing.Point(32, 37);
             this.LevelPicker.Name = "LevelPicker";
             this.LevelPicker.Size = new System.Drawing.Size(120, 20);
             this.LevelPicker.TabIndex = 5;
@@ -210,7 +252,7 @@
             // HeroNameLabel
             // 
             this.HeroNameLabel.AutoSize = true;
-            this.HeroNameLabel.Location = new System.Drawing.Point(29, 37);
+            this.HeroNameLabel.Location = new System.Drawing.Point(29, 17);
             this.HeroNameLabel.Name = "HeroNameLabel";
             this.HeroNameLabel.Size = new System.Drawing.Size(58, 13);
             this.HeroNameLabel.TabIndex = 6;
@@ -450,22 +492,12 @@
             this.att_patk.Size = new System.Drawing.Size(100, 20);
             this.att_patk.TabIndex = 0;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(24, 214);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(171, 12);
+            this.tabControl1.Location = new System.Drawing.Point(171, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(593, 376);
@@ -474,6 +506,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.maxHP);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.LevelPicker);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -484,6 +518,22 @@
             this.tabPage1.Size = new System.Drawing.Size(585, 350);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Attribute";
+            // 
+            // maxHP
+            // 
+            this.maxHP.Location = new System.Drawing.Point(32, 83);
+            this.maxHP.Name = "maxHP";
+            this.maxHP.Size = new System.Drawing.Size(100, 20);
+            this.maxHP.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Max HP";
             // 
             // tabPage2
             // 
@@ -623,6 +673,25 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.Round5Description);
+            this.tabPage3.Controls.Add(this.Round4Description);
+            this.tabPage3.Controls.Add(this.Round3Description);
+            this.tabPage3.Controls.Add(this.Round2Description);
+            this.tabPage3.Controls.Add(this.Round1Description);
+            this.tabPage3.Controls.Add(this.Round5Chooser);
+            this.tabPage3.Controls.Add(this.Round4Chooser);
+            this.tabPage3.Controls.Add(this.Round3Chooser);
+            this.tabPage3.Controls.Add(this.Round2Chooser);
+            this.tabPage3.Controls.Add(this.Round1Chooser);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.SkillDescription);
+            this.tabPage3.Controls.Add(this.SkillChooser);
+            this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(585, 350);
@@ -630,34 +699,183 @@
             this.tabPage3.Text = "Skills";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // slot1ToolStripMenuItem1
+            // label8
             // 
-            this.slot1ToolStripMenuItem1.Name = "slot1ToolStripMenuItem1";
-            this.slot1ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.slot1ToolStripMenuItem1.Text = "Slot 1";
-            this.slot1ToolStripMenuItem1.Click += new System.EventHandler(this.slot1ToolStripMenuItem1_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(27, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "AP Used: ";
             // 
-            // slot2ToolStripMenuItem1
+            // label7
             // 
-            this.slot2ToolStripMenuItem1.Name = "slot2ToolStripMenuItem1";
-            this.slot2ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.slot2ToolStripMenuItem1.Text = "Slot 2";
-            this.slot2ToolStripMenuItem1.Click += new System.EventHandler(this.slot2ToolStripMenuItem1_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 263);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Round 5";
             // 
-            // slot3ToolStripMenuItem1
+            // label6
             // 
-            this.slot3ToolStripMenuItem1.Name = "slot3ToolStripMenuItem1";
-            this.slot3ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.slot3ToolStripMenuItem1.Text = "Slot 3";
-            this.slot3ToolStripMenuItem1.Click += new System.EventHandler(this.slot3ToolStripMenuItem1_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 217);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Round 4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Round 3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Round 2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Round 1";
+            // 
+            // SkillDescription
+            // 
+            this.SkillDescription.AutoSize = true;
+            this.SkillDescription.Location = new System.Drawing.Point(164, 56);
+            this.SkillDescription.Name = "SkillDescription";
+            this.SkillDescription.Size = new System.Drawing.Size(35, 13);
+            this.SkillDescription.TabIndex = 2;
+            this.SkillDescription.Text = "label3";
+            // 
+            // SkillChooser
+            // 
+            this.SkillChooser.FormattingEnabled = true;
+            this.SkillChooser.Location = new System.Drawing.Point(23, 52);
+            this.SkillChooser.Name = "SkillChooser";
+            this.SkillChooser.Size = new System.Drawing.Size(121, 21);
+            this.SkillChooser.TabIndex = 1;
+            this.SkillChooser.SelectedIndexChanged += new System.EventHandler(this.SkillChooser_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Passive Skills";
+            // 
+            // Round1Chooser
+            // 
+            this.Round1Chooser.FormattingEnabled = true;
+            this.Round1Chooser.Location = new System.Drawing.Point(23, 98);
+            this.Round1Chooser.Name = "Round1Chooser";
+            this.Round1Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round1Chooser.TabIndex = 9;
+            this.Round1Chooser.SelectedIndexChanged += new System.EventHandler(this.Round1Chooser_SelectedIndexChanged);
+            // 
+            // Round2Chooser
+            // 
+            this.Round2Chooser.FormattingEnabled = true;
+            this.Round2Chooser.Location = new System.Drawing.Point(23, 144);
+            this.Round2Chooser.Name = "Round2Chooser";
+            this.Round2Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round2Chooser.TabIndex = 10;
+            this.Round2Chooser.SelectedIndexChanged += new System.EventHandler(this.Round2Chooser_SelectedIndexChanged);
+            // 
+            // Round3Chooser
+            // 
+            this.Round3Chooser.FormattingEnabled = true;
+            this.Round3Chooser.Location = new System.Drawing.Point(23, 190);
+            this.Round3Chooser.Name = "Round3Chooser";
+            this.Round3Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round3Chooser.TabIndex = 11;
+            this.Round3Chooser.SelectedIndexChanged += new System.EventHandler(this.Round3Chooser_SelectedIndexChanged);
+            // 
+            // Round4Chooser
+            // 
+            this.Round4Chooser.FormattingEnabled = true;
+            this.Round4Chooser.Location = new System.Drawing.Point(23, 236);
+            this.Round4Chooser.Name = "Round4Chooser";
+            this.Round4Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round4Chooser.TabIndex = 12;
+            this.Round4Chooser.SelectedIndexChanged += new System.EventHandler(this.Round4Chooser_SelectedIndexChanged);
+            // 
+            // Round5Chooser
+            // 
+            this.Round5Chooser.FormattingEnabled = true;
+            this.Round5Chooser.Location = new System.Drawing.Point(23, 282);
+            this.Round5Chooser.Name = "Round5Chooser";
+            this.Round5Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round5Chooser.TabIndex = 13;
+            this.Round5Chooser.SelectedIndexChanged += new System.EventHandler(this.Round5Chooser_SelectedIndexChanged);
+            // 
+            // Round1Description
+            // 
+            this.Round1Description.AutoSize = true;
+            this.Round1Description.Location = new System.Drawing.Point(164, 102);
+            this.Round1Description.Name = "Round1Description";
+            this.Round1Description.Size = new System.Drawing.Size(35, 13);
+            this.Round1Description.TabIndex = 14;
+            this.Round1Description.Text = "label9";
+            // 
+            // Round2Description
+            // 
+            this.Round2Description.AutoSize = true;
+            this.Round2Description.Location = new System.Drawing.Point(164, 148);
+            this.Round2Description.Name = "Round2Description";
+            this.Round2Description.Size = new System.Drawing.Size(41, 13);
+            this.Round2Description.TabIndex = 15;
+            this.Round2Description.Text = "label10";
+            // 
+            // Round3Description
+            // 
+            this.Round3Description.AutoSize = true;
+            this.Round3Description.Location = new System.Drawing.Point(164, 194);
+            this.Round3Description.Name = "Round3Description";
+            this.Round3Description.Size = new System.Drawing.Size(41, 13);
+            this.Round3Description.TabIndex = 16;
+            this.Round3Description.Text = "label11";
+            // 
+            // Round4Description
+            // 
+            this.Round4Description.AutoSize = true;
+            this.Round4Description.Location = new System.Drawing.Point(164, 240);
+            this.Round4Description.Name = "Round4Description";
+            this.Round4Description.Size = new System.Drawing.Size(41, 13);
+            this.Round4Description.TabIndex = 17;
+            this.Round4Description.Text = "label12";
+            // 
+            // Round5Description
+            // 
+            this.Round5Description.AutoSize = true;
+            this.Round5Description.Location = new System.Drawing.Point(164, 286);
+            this.Round5Description.Name = "Round5Description";
+            this.Round5Description.Size = new System.Drawing.Size(41, 13);
+            this.Round5Description.TabIndex = 18;
+            this.Round5Description.Text = "label13";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(764, 388);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(764, 408);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -678,6 +896,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -722,7 +942,6 @@
         private System.Windows.Forms.TextBox att_acc;
         private System.Windows.Forms.TextBox att_matk;
         private System.Windows.Forms.TextBox att_patk;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -745,6 +964,27 @@
         private System.Windows.Forms.ToolStripMenuItem slot1ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem slot2ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem slot3ToolStripMenuItem1;
+        private System.Windows.Forms.TextBox maxHP;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox SkillChooser;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label SkillDescription;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox Round5Chooser;
+        private System.Windows.Forms.ComboBox Round4Chooser;
+        private System.Windows.Forms.ComboBox Round3Chooser;
+        private System.Windows.Forms.ComboBox Round2Chooser;
+        private System.Windows.Forms.ComboBox Round1Chooser;
+        private System.Windows.Forms.Label Round5Description;
+        private System.Windows.Forms.Label Round4Description;
+        private System.Windows.Forms.Label Round3Description;
+        private System.Windows.Forms.Label Round2Description;
+        private System.Windows.Forms.Label Round1Description;
     }
 }
 

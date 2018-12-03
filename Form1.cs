@@ -43,6 +43,18 @@ namespace Merchant_RPG {
             }
         }
 
+        private void HeroList_SelectedIndexChanged_1(object sender, EventArgs e) {
+            if (HeroList.SelectedIndex >= 0) {
+                activeHero = (Hero)HeroList.SelectedItem;
+                selectedHeroList = HeroList.SelectedIndex;
+                HeroNameLabel.Text = activeHero.Name;
+                LevelPicker.SelectedIndex = activeHero.Level - 1;
+                updateStats();
+                updateEquipment();
+                Fill_SkillChooser();
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e) {
             // Plus
             if (HeroChooser.SelectedItem != null) {
@@ -55,6 +67,12 @@ namespace Merchant_RPG {
                 temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Boots")));
                 temp.Equip(bibo.Items.First(x => x.Name.Equals("Worn Trinket")));
 
+                temp.SelectSkill('1', bibo.Skills.First(x => x.Name.Equals("Basic")));
+                temp.SelectSkill('2', bibo.Skills.First(x => x.Name.Equals("Basic")));
+                temp.SelectSkill('3', bibo.Skills.First(x => x.Name.Equals("Basic")));
+                temp.SelectSkill('4', bibo.Skills.First(x => x.Name.Equals("Basic")));
+                temp.SelectSkill('5', bibo.Skills.First(x => x.Name.Equals("Basic")));
+
                 HeroList.Items.Add(temp);
             }
 
@@ -66,38 +84,83 @@ namespace Merchant_RPG {
                 HeroList.Items.RemoveAt(HeroList.SelectedIndex);
         }
 
-        private void button3_Click(object sender, EventArgs e) {
+        public void SaveToFile(List<Hero> heroes, string fileName) {
+            if (heroes.Count == 0) { return; }
 
-            /*Monster enemy = Library.Monsters.First(x => x.Name == "Forest Gathering");
-            double enemyHP = enemy.HP;
-            double runden = 0;
-
-            while (enemyHP > 0) {
-                double dmg = myHero.Level * myHero.LevelAttack;
-                double def = enemy.Defense;
-                enemyHP -= dmg;
-                runden++;
+            XmlDocument xmlDocument = new XmlDocument();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Hero>));
+            using (MemoryStream stream = new MemoryStream()) {
+                serializer.Serialize(stream, heroes);
+                stream.Position = 0;
+                xmlDocument.Load(stream);
+                xmlDocument.Save(fileName);
             }
-            Console.WriteLine("HUHU");*/
+
+
+        }
+
+        public void LoadFromFile(int slot) {
+            string path = "save_" + slot + ".xml";
+            if (File.Exists(path)) {
+                activeHeroes = new List<Hero>();
+                XmlSerializer x = new XmlSerializer(typeof(List<Hero>));
+                StreamReader reader = new StreamReader(path);
+                activeHeroes = (List<Hero>)x.Deserialize(reader);
+                reader.Close();
+
+                if (activeHeroes.Count > 0) {
+                    HeroList.Items.Clear();
+                    foreach (Hero hero in activeHeroes) {
+                        HeroList.Items.Add(hero);
+                    }
+                }
+                else {
+                    MessageBox.Show("Found no Heroes");
+                }
+            }
+            else {
+                MessageBox.Show("File " + path + " not found.");
+            }
+        }
+
+        private void Save(int slot) {
+            activeHeroes = new List<Hero>();
+            foreach (Hero entry in HeroList.Items) {
+                activeHeroes.Add(entry);
+            }
+
+            SaveToFile(activeHeroes, "save_" + slot + ".xml");
+        }
+
+        // Save Slots
+        private void slot1ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Save(1);
+        }
+
+        private void slot2ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Save(2);
+        }
+
+        private void slot3ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Save(3);
+        }
+
+        // Open Slots
+        private void slot1ToolStripMenuItem1_Click(object sender, EventArgs e) {
+            LoadFromFile(1);
+        }
+
+        private void slot2ToolStripMenuItem1_Click(object sender, EventArgs e) {
+            LoadFromFile(2);
+        }
+
+        private void slot3ToolStripMenuItem1_Click(object sender, EventArgs e) {
+            LoadFromFile(3);
         }
 
         #endregion
 
         #region Tabpage1 => Attribute
-
-        private void HeroList_SelectedIndexChanged_1(object sender, EventArgs e) {
-            if (HeroList.SelectedIndex >= 0) {
-                activeHero = (Hero)HeroList.SelectedItem;
-                selectedHeroList = HeroList.SelectedIndex;
-                HeroNameLabel.Text = activeHero.Name;
-                LevelPicker.SelectedIndex = activeHero.Level - 1;
-                att_str.Text = activeHero.Strength.ToString();
-                att_int.Text = activeHero.Intelligence.ToString();
-                att_dex.Text = activeHero.Dexterity.ToString();
-                updateStats();
-                updateEquipment();
-            }
-        }
 
         private void updateStats() {
             att_patk.Text = activeHero.GetRealValue("Attack").ToString();
@@ -106,6 +169,10 @@ namespace Merchant_RPG {
             att_crit.Text = activeHero.GetRealValue("Critical").ToString(); 
             att_mdef.Text = activeHero.GetRealValue("MagicDefense").ToString();
             att_pdef.Text = activeHero.GetRealValue("Defense").ToString();
+            att_str.Text = activeHero.GetRealValue("Strength").ToString();
+            att_int.Text = activeHero.GetRealValue("Intelligence").ToString();
+            att_dex.Text = activeHero.GetRealValue("Dexterity").ToString();
+            maxHP.Text = activeHero.GetRealValue("HP").ToString();
             att_dmg.Text = (double.Parse(att_patk.Text) + double.Parse(att_matk.Text)).ToString();
         }
 
@@ -113,6 +180,7 @@ namespace Merchant_RPG {
             activeHero.Level = int.Parse(LevelPicker.Text);
             updateStats();
             HeroList.Items[selectedHeroList] = activeHero;
+            tabControl1.TabPages[2].Enabled = activeHero.Level >= 10 ? true : false;
         }
 
         #endregion
@@ -176,83 +244,72 @@ namespace Merchant_RPG {
 
         #endregion
 
-        public void SaveToFile(List<Hero> heroes, string fileName){
-            if (heroes.Count == 0){ return; }
-            
-            XmlDocument xmlDocument = new XmlDocument();
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Hero>));
-            using (MemoryStream stream = new MemoryStream()) {
-                serializer.Serialize(stream, heroes);
-                stream.Position = 0;
-                xmlDocument.Load(stream);
-                xmlDocument.Save(fileName);
-            }
-            
+        #region TabPage3 => Skills
 
-        }
-
-        public void LoadFromFile(int slot) {
-            string path = "save_" + slot + ".xml";
-            if (File.Exists(path)) {
-                activeHeroes = new List<Hero>();
-                XmlSerializer x = new XmlSerializer(typeof(List<Hero>));
-                StreamReader reader = new StreamReader(path);
-                activeHeroes = (List<Hero>)x.Deserialize(reader);
-                reader.Close();
-
-                if (activeHeroes.Count > 0) {
-                    HeroList.Items.Clear();
-                    foreach (Hero hero in activeHeroes) {
-                        HeroList.Items.Add(hero);
-                    }
-                }
-                else {
-                    MessageBox.Show("Found no Heroes");
-                }
-            }
-            else {
-                MessageBox.Show("File " + path + " not found.");
+        public void Fill_SkillChooser() {
+            // Passive
+            SkillChooser.Items.Clear();
+            foreach (Skill entry in bibo.Skills.Where(x=> x.AvailableFor.Contains(activeHero.Id) && !x.IsActive)) {
+                SkillChooser.Items.Add(entry);
             }
 
-            
-
-        }
-
-        private void Save(int slot) {
-            activeHeroes = new List<Hero>();
-            foreach (Hero entry in HeroList.Items) {
-                activeHeroes.Add(entry);
+            // Rounds
+            Round1Chooser.Items.Clear();
+            Round2Chooser.Items.Clear();
+            Round4Chooser.Items.Clear();
+            Round3Chooser.Items.Clear();
+            Round5Chooser.Items.Clear();
+            foreach (Skill entry in bibo.Skills.Where(x => x.AvailableFor.Contains(activeHero.Id) && x.IsActive || x.AvailableFor.Count() == 0)){
+                Round1Chooser.Items.Add(entry);
+                Round2Chooser.Items.Add(entry);
+                Round3Chooser.Items.Add(entry);
+                Round4Chooser.Items.Add(entry);
+                Round5Chooser.Items.Add(entry);
             }
-            
-            SaveToFile(activeHeroes, "save_" + slot + ".xml");
         }
 
-        // Save Slots
-        private void slot1ToolStripMenuItem_Click(object sender, EventArgs e) {
-            Save(1);
+        private void SkillChooser_SelectedIndexChanged(object sender, EventArgs e) {
+            Skill temp = (Skill)SkillChooser.SelectedItem;
+            SkillDescription.Text = temp.Description;
+            activeHero.SelectSkill('P', temp);
+            updateStats();
         }
 
-        private void slot2ToolStripMenuItem_Click(object sender, EventArgs e) {
-            Save(2);
+        private void Round1Chooser_SelectedIndexChanged(object sender, EventArgs e) {
+            Skill temp = (Skill)Round1Chooser.SelectedItem;
+            Round1Description.Text = temp.Description;
+            activeHero.SelectSkill('1', temp);
         }
 
-        private void slot3ToolStripMenuItem_Click(object sender, EventArgs e) {
-            Save(3);
+        private void Round2Chooser_SelectedIndexChanged(object sender, EventArgs e) {
+            Skill temp = (Skill)Round2Chooser.SelectedItem;
+            Round2Description.Text = temp.Description;
+            activeHero.SelectSkill('2', temp);
         }
 
-        // Open Slots
-        private void slot1ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            LoadFromFile(1);
+        private void Round3Chooser_SelectedIndexChanged(object sender, EventArgs e) {
+            Skill temp = (Skill)Round3Chooser.SelectedItem;
+            Round3Description.Text = temp.Description;
+            activeHero.SelectSkill('3', temp);
         }
 
-        private void slot2ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            LoadFromFile(2);
+        private void Round4Chooser_SelectedIndexChanged(object sender, EventArgs e) {
+            Skill temp = (Skill)Round4Chooser.SelectedItem;
+            Round4Description.Text = temp.Description;
+            activeHero.SelectSkill('4', temp);
         }
 
-        private void slot3ToolStripMenuItem1_Click(object sender, EventArgs e) {
-            LoadFromFile(3);
+        private void Round5Chooser_SelectedIndexChanged(object sender, EventArgs e) {
+            Skill temp = (Skill)Round5Chooser.SelectedItem;
+            Round5Description.Text = temp.Description;
+            activeHero.SelectSkill('5', temp);
         }
-       
+        #endregion
+
+        
+
+        
+
 
     }
 }

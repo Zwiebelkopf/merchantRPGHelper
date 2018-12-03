@@ -160,9 +160,29 @@ namespace Merchant_RPG {
 		};
 
         public Skill[] Skills = {
-            new Skill("Might", false, raisepatk:1.1),
-            new Skill("Vitality", false, raisepatk:1.06, raisepdef: 1.12),
-            new Skill("Juggernaut", false, raisehp:1.25),
+            /*passives*/
+            new Skill("Might", false, 0, new int[] {0,1}, desc:"Passively increase Atk by 10%", raisepatk:1.1),
+            new Skill("Vitality", false, 0, new int[] {0}, desc:"Passively increase Def by 12% and Atk by 6%", raisepatk:1.06, raisepdef: 1.12),
+            new Skill("Juggernaut", false, 0, new int[] {0}, desc:"Passively increase Hp by 25%", raisehp:1.25),
+            new Skill("Keen Eye", false, 0, new int[] {1}, desc:"Passively increase Acc by 10%", raiseacc:1.1),
+	        new Skill("Critical Strike", false, 0, new int[] {1}, desc:"Passively increase Crit Dmg by 35%"), // MISSING
+            /*warrior*/
+            new Skill("Basic", true, 0, new int[] {}, desc:"Deal 1x Atk & 1x Matk", dealpatk:1, dealmatk:1),
+            new Skill("Slash", true, 4, new int[]{0}, desc:"Deal 1.6x Atk", dealpatk:1.6),
+            new Skill("Shield Slam", true, 5, new int[] {0}, desc:"Deal 1.4x Def & Gain Def↑40% for 2 Turns", dealdef:1.4, buffdef:1.4, duration:2),
+            new Skill("Block", true, 7, new int[] {0}, desc:"Block the next Physical Attack", ignoredmg:true, duration:1),
+            new Skill("Slash II", true, 7, new int[] {0}, desc:"Deal 2.2x Atk", dealpatk:2.2),
+            new Skill("Unbreakable", true, 4, new int[] {0}, desc:"Remove all Debuffs"), // MISSING
+            new Skill("Shield Slam II", true, 8, new int[] {0}, desc:"Deal 2.3x Def & Gain Def↑60% for 3 Turns", dealdef:2.3, buffdef:1.6, duration:3),
+            new Skill("Taunt", true, 8, new int[] {0}, desc:"Next enemy attack only hits hero"), // MISSING
+            /*rogue*/
+            new Skill("Kidney Shot", true, 4, new int[] {1}, desc:"Deal 1.6x Acc as Physical Dmg", dealacc:1.6),
+            new Skill("Sunder", true, 6, new int[] {1}, desc:"Deal 1.2x Atk & Give Def↓25% for 2 Turns", dealpatk:1.2), // MISSING
+            new Skill("Cheap Shot", true, 6, new int[] {1}, desc:"Deal 1.1x Atk as True Dmg (Ignore Def)", dealtrue:1.1),
+            new Skill("Evade", true, 8, new int[] {1}, desc:"Evade the next Attack", ignoredmg:true, duration:1),
+            new Skill("Kidney Shot II", true, 7, new int[] {1}, desc:"Deal 2.2x Acc as Physical Dmg", dealacc:2.2),
+            new Skill("Cheap Shot II", true, 9, new int[] {1}, desc:"Deal 1.6x Atk as True Dmg (Ignore Def)", dealtrue:1.6),
+            new Skill("Sunder II", true, 9, new int[] {1}, desc:"Deal 1.8x Atk & Give Def↓35% for 3 Turns", dealpatk:1.8),  // MISSING
         };
 
         public Item[] Items = {

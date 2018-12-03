@@ -33,6 +33,7 @@ namespace Merchant_RPG {
 
         //public Dictionary<ItemSlot, Item> Equipment_old;
         public Equipment Inventar;
+        public HeroSkills Skills;
 
         public Hero() {
 
@@ -60,6 +61,7 @@ namespace Merchant_RPG {
             this.LevelDefense = levelDefense;
             this.LevelMagicDefense = levelMagicDefense;
             Inventar = new Equipment();
+            Skills = new HeroSkills();
         }
 
         public Hero(Hero another) {
@@ -84,10 +86,34 @@ namespace Merchant_RPG {
             this.LevelDefense = another.LevelDefense;
             this.LevelMagicDefense = another.LevelMagicDefense;
             Inventar = another.Inventar;
+            Skills = another.Skills;
         }
 
         public void Equip(Item what) {
             Inventar.Equip(what);
+        }
+
+        public void SelectSkill(char pos, Skill skill) {
+            switch (pos) {
+                case 'P':
+                    Skills.Passive = skill;
+                    break;
+                case '1':
+                    Skills.Round1 = skill;
+                    break;
+                case '2':
+                    Skills.Round1 = skill;
+                    break;
+                case '3':
+                    Skills.Round1 = skill;
+                    break;
+                case '4':
+                    Skills.Round1 = skill;
+                    break;
+                case '5':
+                    Skills.Round1 = skill;
+                    break;
+            }
         }
 
         public override string ToString() {
@@ -97,28 +123,32 @@ namespace Merchant_RPG {
         public double GetRealValue(string what) {
             double erg = 0;
 
+            // Stats
             switch (what) {
                 case "Attack":
-                    erg = StartAttack + LevelAttack * (Level - 1);
+                    erg = StartAttack + LevelAttack * (Level);
                     break;
                 case "MagicAttack":
-                    erg += StartMagicAttack + LevelMagicAttack * (Level - 1);
+                    erg += StartMagicAttack + LevelMagicAttack * (Level);
                     break;
                 case "Accuracy":
-                    erg += StartAccuracy + LevelAccuracy * (Level - 1);
+                    erg += StartAccuracy + LevelAccuracy * (Level);
                     break;
                 case "Defense":
-                    erg += StartDefense + LevelDefense * (Level - 1);
+                    erg += StartDefense + LevelDefense * (Level);
                     break;
                 case "MagicDefense":
-                    erg += StartMagicDefense + LevelMagicDefense * (Level - 1);
+                    erg += StartMagicDefense + LevelMagicDefense * (Level);
                     break;
                 case "Critical":
-                    erg += StartCriticalRate + LevelCriticalRate * (Level - 1);
+                    erg += StartCriticalRate + LevelCriticalRate * (Level);
+                    break;
+                case "HP":
+                    erg += StartHP + Level * LevelHP;
                     break;
             }
 
-
+            // Items
             foreach (var entry in Inventar.ToArray()) {
                 switch (what) {
                     case "Attack":
@@ -140,8 +170,28 @@ namespace Merchant_RPG {
                     case "Critical":
                         erg += entry.CriticalRate;
                         break;
+                    case "Strength":
+                        erg += entry.Strength;
+                        break;
+                    case "Intelligence":
+                        erg += entry.Intelligence;
+                        break;
+                    case "Dexterity":
+                        erg += entry.Dexterity;
+                        break;
+                    case "HP":
+                        erg += entry.HP;
+                        break;
                 }
-                
+            }
+
+            // Skills
+            if (Skills.Passive != null) {
+                switch (what) {
+                    case "HP":
+                        erg = erg * Skills.Passive.RaiseHP;
+                        break;
+                }
             }
 
             return erg;
