@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Merchant_RPG {
+    [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(Item))]
     public class HeroSkills {
         public Skill Passive;
         public Skill Round1;
@@ -46,6 +48,8 @@ namespace Merchant_RPG {
         }
     }
 
+    [Serializable]
+    [System.Xml.Serialization.XmlInclude(typeof(int[]))]
     public class Skill {
 
         public bool IsActive;
@@ -73,6 +77,8 @@ namespace Merchant_RPG {
         public double BuffDef;
 
         public bool IgnoreDamage;
+
+        public Skill() { }
 
         public Skill(string name, bool isactive, int cost, int[] hero_ids, string desc = "", double raisepatk = 1, double raisematk = 1, double raisepdef = 1, 
             double raisemdef = 1, double raisehp = 1, double raiseacc = 1, double raisecritdmg = 1, double dealpatk = 0, double dealmatk = 0, double dealacc = 0,

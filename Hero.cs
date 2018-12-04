@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Merchant_RPG {
     [Serializable]
     [System.Xml.Serialization.XmlInclude(typeof(Equipment))]
+    [System.Xml.Serialization.XmlInclude(typeof(HeroSkills))]
     public class Hero {
         public readonly int Id;
         public string Name;
@@ -31,13 +32,10 @@ namespace Merchant_RPG {
         public double LevelDefense;
         public double LevelMagicDefense;
 
-        //public Dictionary<ItemSlot, Item> Equipment_old;
         public Equipment Inventar;
         public HeroSkills Skills;
 
-        public Hero() {
-
-        }
+        public Hero() {}
 
         public Hero(int id, string name, double strength, double intelligence, double dexterity, double startHP, double startAttack, double startMagicAttack, double startAccuracy, double startCriticalRate, double startDefense, double startMagicDefense, double levelHP, double levelAttack, double levelMagicAttack, double levelAccuracy, double levelCriticalRate, double levelDefense, double levelMagicDefense) {
             this.Id = id;

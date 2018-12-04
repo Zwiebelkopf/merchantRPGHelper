@@ -86,6 +86,34 @@ namespace Merchant_RPG {
             new Hero(17, "Bard Prestige 1", 5, 5, 5,
                 60, 2, 2, 2, 1, 6, 6,
                 13, 0.6, 0.6, 0.7, 0, 0.4, 0.4),
+            ///////////////////////////////////////////////
+            new Hero(18, "Warrior Prestige 2", 11, 1, 7,
+                100, 5, 1, 2, 1, 14, 8,
+                20, 1.4, 0.3, 0.9, 0, 2.5, 1.2),
+            new Hero(19, "Rogue Prestige 2", 8, 1, 10,
+                90, 5, 1, 2, 5, 9, 8,
+                14, 1.8, 0.3, 1.5, 0.3, 1.5, 1.2),
+            new Hero(20, "Mage Prestige 2", 1, 12, 6,
+                80, 1, 5, 2, 1, 7, 10,
+                14, 0.3, 2.8, 0.9, 0, 1.2, 1.2),
+            new Hero(21, "Berserker Prestige 2", 12, 1, 7,
+                90, 5, 1, 2, 1, 10, 7,
+                16, 2.4, 0.3, 0.9, 0, 1.5, 1.2),
+            new Hero(22, "Cleric Prestige 2", 1, 11, 8,
+                80, 1, 5, 2, 1, 7, 10,
+                14, 0.3, 1.8, 1.8, 0, 1.2, 1.2),
+            new Hero(23, "Assassin Prestige 2", 7, 1, 11,
+                90, 5, 1, 2, 10, 9, 8,
+                16, 1.6, 0.3, 1.8, 0.7, 1.5, 1.2),
+            new Hero(24, "Paladin Prestige 2", 8, 8, 7,
+                100, 3, 3, 2, 1, 8, 14,
+                20, 0.9, 0.9, 0.9, 0, 1.2, 3),
+            new Hero(25, "Dark Knight Prestige 2", 10, 10, 4,
+                80, 3, 3, 2, 1, 10, 9,
+                15, 1.4, 1.4, 1, 0, 1.2, 1.2),
+            new Hero(26, "Bard Prestige 2", 8, 8, 8,
+                60, 2, 2, 2, 1, 6, 6,
+                18, 0.9, 0.9, 1, 0, 1, 1),
 		};
 
         public Monster[] Monsters = {
@@ -161,28 +189,86 @@ namespace Merchant_RPG {
 
         public Skill[] Skills = {
             /*passives*/
-            new Skill("Might", false, 0, new int[] {0,1}, desc:"Passively increase Atk by 10%", raisepatk:1.1),
-            new Skill("Vitality", false, 0, new int[] {0}, desc:"Passively increase Def by 12% and Atk by 6%", raisepatk:1.06, raisepdef: 1.12),
-            new Skill("Juggernaut", false, 0, new int[] {0}, desc:"Passively increase Hp by 25%", raisehp:1.25),
-            new Skill("Keen Eye", false, 0, new int[] {1}, desc:"Passively increase Acc by 10%", raiseacc:1.1),
-	        new Skill("Critical Strike", false, 0, new int[] {1}, desc:"Passively increase Crit Dmg by 35%"), // MISSING
+            new Skill("Might", false, 0, new int[] {0,1,3,9,10,12,18,19,21}, desc:"Passively increase Atk by 10%", raisepatk:1.1),
+            new Skill("Vitality", false, 0, new int[] {0,6,9,15,18,24}, desc:"Passively increase Def by 12% and Atk by 6%", raisepatk:1.06, raisepdef: 1.12),
+            new Skill("Juggernaut", false, 0, new int[] {0,6,8,9,15,17,18,24,26}, desc:"Passively increase Hp by 25%", raisehp:1.25),
+            new Skill("Keen Eye", false, 0, new int[] {1,5,10,14,19,23}, desc:"Passively increase Acc by 10%", raiseacc:1.1),
+	        new Skill("Critical Strike", false, 0, new int[] {1,3,5,10,12,14,19,21,23}, desc:"Passively increase Crit Dmg by 35%", raisecritdmg:1.35),
+            new Skill("Intellect", false, 0, new int[] {2,4,11,13,20,22}, desc:"Passively increase Matk by 10%", raisematk:1.1),
+            new Skill("Wisdom", false, 0, new int[] {2,4,7,8,11,13,16,17,20,22,25,26}, desc:"Passively increase Ap by 2"), // MISSING
+            new Skill("Mind", false, 0, new int[] {2,4,6,11,13,15,20,22,24}, desc:"Passively increase Mdef & Acc by 10%", raisemdef:1.1, raiseacc:1.1),
+            new Skill("Critical Eye", false, 0, new int[] {3,5,12,14,21,23}, desc:"Passively increase Crit Chance by 12%"), // MISSING
+            new Skill("Dark Arts", false, 0, new int[] {7,16,25}, desc:"Passively increase Atk & Matk by 9%", raisepatk:1.09, raisematk:1.09),
+            new Skill("Dark Precision", false, 0, new int[] {7,16,25}, desc:"Passively increase Acc by 50 and Crit by 10"), // MISSING
+            new Skill("Consolidate", false, 0, new int[] {8,17,26}, desc:"Passively increase Def and Mdef by 5%", raisepdef:1.05, raisemdef:1.05),
             /*warrior*/
             new Skill("Basic", true, 0, new int[] {}, desc:"Deal 1x Atk & 1x Matk", dealpatk:1, dealmatk:1),
-            new Skill("Slash", true, 4, new int[]{0}, desc:"Deal 1.6x Atk", dealpatk:1.6),
-            new Skill("Shield Slam", true, 5, new int[] {0}, desc:"Deal 1.4x Def & Gain Def↑40% for 2 Turns", dealdef:1.4, buffdef:1.4, duration:2),
-            new Skill("Block", true, 7, new int[] {0}, desc:"Block the next Physical Attack", ignoredmg:true, duration:1),
-            new Skill("Slash II", true, 7, new int[] {0}, desc:"Deal 2.2x Atk", dealpatk:2.2),
-            new Skill("Unbreakable", true, 4, new int[] {0}, desc:"Remove all Debuffs"), // MISSING
-            new Skill("Shield Slam II", true, 8, new int[] {0}, desc:"Deal 2.3x Def & Gain Def↑60% for 3 Turns", dealdef:2.3, buffdef:1.6, duration:3),
-            new Skill("Taunt", true, 8, new int[] {0}, desc:"Next enemy attack only hits hero"), // MISSING
+            new Skill("Slash", true, 4, new int[]{0,3,9,12,18,21}, desc:"Deal 1.6x Atk", dealpatk:1.6),
+            new Skill("Shield Slam", true, 5, new int[] {0,9,18}, desc:"Deal 1.4x Def & Gain Def↑40% for 2 Turns", dealdef:1.4, buffdef:1.4, duration:2),
+            new Skill("Block", true, 7, new int[] {0,9,18}, desc:"Block the next Physical Attack", ignoredmg:true, duration:1),
+            new Skill("Slash II", true, 7, new int[] {0,3,9,12,18,21}, desc:"Deal 2.2x Atk", dealpatk:2.2),
+            new Skill("Unbreakable", true, 4, new int[] {0,9,18}, desc:"Remove all Debuffs"), // MISSING
+            new Skill("Shield Slam II", true, 8, new int[] {0,9,18}, desc:"Deal 2.3x Def & Gain Def↑60% for 3 Turns", dealdef:2.3, buffdef:1.6, duration:3),
+            new Skill("Taunt", true, 8, new int[] {0,9,18}, desc:"Next enemy attack only hits hero"), // MISSING
             /*rogue*/
-            new Skill("Kidney Shot", true, 4, new int[] {1}, desc:"Deal 1.6x Acc as Physical Dmg", dealacc:1.6),
-            new Skill("Sunder", true, 6, new int[] {1}, desc:"Deal 1.2x Atk & Give Def↓25% for 2 Turns", dealpatk:1.2), // MISSING
-            new Skill("Cheap Shot", true, 6, new int[] {1}, desc:"Deal 1.1x Atk as True Dmg (Ignore Def)", dealtrue:1.1),
-            new Skill("Evade", true, 8, new int[] {1}, desc:"Evade the next Attack", ignoredmg:true, duration:1),
-            new Skill("Kidney Shot II", true, 7, new int[] {1}, desc:"Deal 2.2x Acc as Physical Dmg", dealacc:2.2),
-            new Skill("Cheap Shot II", true, 9, new int[] {1}, desc:"Deal 1.6x Atk as True Dmg (Ignore Def)", dealtrue:1.6),
-            new Skill("Sunder II", true, 9, new int[] {1}, desc:"Deal 1.8x Atk & Give Def↓35% for 3 Turns", dealpatk:1.8),  // MISSING
+            new Skill("Kidney Shot", true, 4, new int[] {1,5,10,14,19,23}, desc:"Deal 1.6x Acc as Physical Dmg", dealacc:1.6),
+            new Skill("Sunder", true, 6, new int[] {1,10,19}, desc:"Deal 1.2x Atk & Give Def↓25% for 2 Turns", dealpatk:1.2), // MISSING
+            new Skill("Cheap Shot", true, 6, new int[] {1,10,19}, desc:"Deal 1.1x Atk as True Dmg (Ignore Def)", dealtrue:1.1),
+            new Skill("Evade", true, 8, new int[] {1,5,10,14,19,23}, desc:"Evade the next Attack", ignoredmg:true, duration:1),
+            new Skill("Kidney Shot II", true, 7, new int[] {1,10,19}, desc:"Deal 2.2x Acc as Physical Dmg", dealacc:2.2),
+            new Skill("Cheap Shot II", true, 9, new int[] {1,10,19}, desc:"Deal 1.6x Atk as True Dmg (Ignore Def)", dealtrue:1.6),
+            new Skill("Sunder II", true, 9, new int[] {1,10,19}, desc:"Deal 1.8x Atk & Give Def↓35% for 3 Turns", dealpatk:1.8),  // MISSING
+            /*mage*/
+            new Skill("Mind Blast", true, 4, new int[] {2,4,11,13,20,22}, desc:"Deal 1.6x Matk", dealmatk:1.6),
+            new Skill("Magic Missile", true, 6, new int[] {2,11,20}, desc:"Deal 1.4x Matk & Gain Matk↑25% for 2 Turns", dealmatk:1.4, raisematk:1.25, duration:2),
+            new Skill("Mind Blast II", true, 7, new int[] {2,4,11,13,20,22}, desc:"Deal 2.2x Matk", dealmatk:2.2),
+            new Skill("Mana Shield", true, 5, new int[] {2,11,20}, desc:"Reflect 0.6x Matk on next attack received"), // MISSING
+            new Skill("Silence", true, 8, new int[] {2,11,20}, desc:"Remove all Buffs from the Enemy"), // MISSING
+            new Skill("Magic Missile II", true, 9, new int[] {2,11,20}, desc:"Deal 2x Matk & Gain Matk↑25% for 3 Turns", dealmatk:2, raisematk:1.25, duration:3),
+            new Skill("Mana Shield II", true, 8, new int[] {2,11,20}, desc:"Reflect 1.2x Matk on next attack received"), // MISSING
+            /*berserker*/
+            new Skill("Enrage", true, 3, new int[] {3,12,21}, desc:"Gain Atk↑60% for 3 Turns", raisepatk:1.6, duration:3),
+            new Skill("Vicious Strike", true, 6, new int[] {3,12,21}, desc:"Deal 1.4x Atk & Gain Atk↑25% for 2 Turns", raisepatk:1.25, dealpatk:1.4, duration:2),
+            new Skill("Blind Fury", true, 3, new int[] {3,12,21}, desc:"Gain Crit↑60% & Acc ↓25% for 4 Turns"), // MISSING
+            new Skill("Vicious Strike II", true, 9, new int[] {3,12,21}, desc:"Deal 2x Atk & Gain Atk↑25% for 3 Turns", dealpatk:2, raisepatk:1.25, duration:3),
+            new Skill("Berserk Smash", true, 7, new int[]{3,12,21}, desc:"Deal 1.8x Atk & Gain Atk↑15% on Crit (stacks)", dealpatk:1.8, raisepatk:1.15), // MISSING
+            /*cleric*/
+            new Skill("Divine Smite", true, 6, new int[] {4,13,22}, desc:"Deal 1.5xMatk&Acc. Party ↑15%Matk&Acc (3 turns)", dealmatk:1.5,raiseacc:1.15, duration:3), // MISSING
+            new Skill("Lesser Heal", true, 7, new int[] {4,13,22}, desc:"Heal the target in front of you for .8x Matk"), // MISSING
+            new Skill("Cleanse", true, 9, new int[] {4,13,22}, desc:"Remove all Debuffs on whole party"), // MISSING
+            new Skill("Greater Heal", true, 9, new int[] {4,13,22}, desc:"Heal the party for .25x Matk"), // MISSING
+            new Skill("Revive", true, 10, new int[] {4,13,22}, desc:"Revive a fallen party member with 50% hp"), // MISSING
+            /*assassin*/
+            new Skill("Stab", true, 5, new int[] {5,14,23}, desc:"Deal 1.6x Atk with Crit Dmg +50%"), // MISSING
+            new Skill("Puncture", true, 6, new int[] {5,14,23}, desc:"Deal 1.1x Acc as True Dmg"), // MISSING
+            new Skill("Stab II", true, 8, new int[] {5,14,23}, desc:"Deal 2.3x Atk with Crit Dmg +100%"), // MISSING
+            new Skill("Puncture II", true, 9, new int[] {5,14,23}, desc:"Deal 1.7x Acc as True Dmg"), // MISSING
+            new Skill("Ambush", true, 12, new int[] {5,14,23}, desc:"Deal 3x Atk&Acc. Enemy ↓50% Atk for 1 turn", dealacc:3, dealpatk:3), // MISSING
+            /*paladin*/
+            new Skill("Divine Strike", true, 4, new int[] {6,15,24}, desc:"Deal 1.4x Atk & Heal for .2x Matk", dealpatk:1.4), // MISSING
+            new Skill("Templar Shield",true, 6, new int[] {6,15,24}, desc:"Deal 1.5x Atk & 2x Matk", dealpatk:1.5, dealmatk:2),
+            new Skill("Shield", true, 7, new int[] {6,15,24}, desc:"Block the next Magical Attack"), // MISSING
+            new Skill("Holy Blessing", true, 4, new int[] {6,15,24}, desc:"Give party Atk↑15% & Mdef↑50% for 5 Turns", raisepatk:1.15, raisemdef:1.5, duration:5),
+            new Skill("Unbreakable", true, 4, new int[] {6,15,24}, desc:"Remove all Debuffs"), // MISSING
+            new Skill("Divine Strike II", true, 8, new int[] {6,15,24}, desc:"Deal 1.8x Atk & Heal for .5x Matk"), // MISSING
+            new Skill("Holy Shield", true, 9, new int[] {6,15,24}, desc:"Block next Magical Attack for whole party"), // MISSING
+            /*darkknight*/
+            new Skill("Unholy Slash", true, 4, new int[] {7,16,25}, desc:"Deal 1.5x Atk & Matk Lifesteal 8%", dealpatk:1.5, dealmatk:1.5), // MISSING
+            new Skill("Slow", true, 4, new int[] {7,16,25}, desc:"Deal .6x Matk and Give Eva↓80% for 3 Turns", dealmatk:0.6), // MISSING
+            new Skill("Terrify", true, 7, new int[] {7,16,25}, desc:"Deal 1.4x Atk&Matk Give Mdef↓30% for 2 Turns", dealpatk:1.4, dealmatk:1.4), // MISSING
+            new Skill("Overwhelm", true, 3, new int[] {7,16,25}, desc:"Party gain Atk↑25% & Matk↑25% for 3 Turns"), // MISSING
+            new Skill("Crypt Poison", true, 6, new int[] {7,16,25}, desc:"Deal 1x Atk & 1x Matk for 3 Turns"), // MISSING
+            new Skill("Unholy Slash II", true, 6, new int[] {7,16,25}, desc:"Deal 2x Atk & Matk Lifesteal 10%"), // MISSING
+            new Skill("Twilight Strike", true, 7, new int[] {7,16,25}, desc:"Deal 1.1x Atk & 1.1x Matk as True Dmg"), // MISSING
+            /*bard*/
+            new Skill("Serenade", true, 4, new int[] {8,17,26}, desc:"Gain Def↓100% and Give Atk↓50% for 1 Turn"), // MISSING
+            new Skill("Song of Courage", true, 10, new int[] {8,17,26}, desc:"Give Party↑8% Matk & Atk for 10 turns(stacks)", duration:10), // MISSING
+            new Skill("Master Decoy", true, 5, new int[] {8,17,26}, desc:"1 Turn Def & Mdef ↓50% Heal Party for 50% Dmg"), // MISSING
+            new Skill("Poem of Focus", true, 6, new int[] {8,17,26}, desc:"This turn all crits do 2.5x more dmg"), // MISSING
+            new Skill("Song of Defense", true, 9, new int[] {8,17,26}, desc:"Give Party 40% reflect on next attack received"), // MISSING
+            new Skill("Peaceful Respite", true, 6, new int[] {8,17,26}, desc:"Party and Enemy ↓50% Atk & Matk for 1 turn"), // MISSING
+            new Skill("Double Image", true, 7, new int[] {8,17,26}, desc:"50% chance to skip next enemy attack"), // MISSING
+            new Skill("Recharge", true, -1, new int[] {8,17,26}, desc:"Skips turn, adds 1 AP"), // MISSING
         };
 
         public Item[] Items = {

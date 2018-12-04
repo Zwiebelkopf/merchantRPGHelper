@@ -266,6 +266,12 @@ namespace Merchant_RPG {
                 Round4Chooser.Items.Add(entry);
                 Round5Chooser.Items.Add(entry);
             }
+
+            Round1Chooser.SelectedItem = activeHero.Skills.Round1;
+            Round2Chooser.SelectedItem = activeHero.Skills.Round2;
+            Round3Chooser.SelectedItem = activeHero.Skills.Round3;
+            Round4Chooser.SelectedItem = activeHero.Skills.Round4;
+            Round5Chooser.SelectedItem = activeHero.Skills.Round5;
         }
 
         private void SkillChooser_SelectedIndexChanged(object sender, EventArgs e) {
