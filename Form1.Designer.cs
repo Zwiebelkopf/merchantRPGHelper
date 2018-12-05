@@ -84,7 +84,17 @@
             this.Equip_weapon_label = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
+            this.Round5Description = new System.Windows.Forms.Label();
+            this.Round4Description = new System.Windows.Forms.Label();
+            this.Round3Description = new System.Windows.Forms.Label();
+            this.Round2Description = new System.Windows.Forms.Label();
+            this.Round1Description = new System.Windows.Forms.Label();
+            this.Round5Chooser = new System.Windows.Forms.ComboBox();
+            this.Round4Chooser = new System.Windows.Forms.ComboBox();
+            this.Round3Chooser = new System.Windows.Forms.ComboBox();
+            this.Round2Chooser = new System.Windows.Forms.ComboBox();
+            this.Round1Chooser = new System.Windows.Forms.ComboBox();
+            this.usedAP = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -93,16 +103,16 @@
             this.SkillDescription = new System.Windows.Forms.Label();
             this.SkillChooser = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Round1Chooser = new System.Windows.Forms.ComboBox();
-            this.Round2Chooser = new System.Windows.Forms.ComboBox();
-            this.Round3Chooser = new System.Windows.Forms.ComboBox();
-            this.Round4Chooser = new System.Windows.Forms.ComboBox();
-            this.Round5Chooser = new System.Windows.Forms.ComboBox();
-            this.Round1Description = new System.Windows.Forms.Label();
-            this.Round2Description = new System.Windows.Forms.Label();
-            this.Round3Description = new System.Windows.Forms.Label();
-            this.Round4Description = new System.Windows.Forms.Label();
-            this.Round5Description = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.EnemyChooser = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,6 +120,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -497,6 +508,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(171, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -683,7 +695,7 @@
             this.tabPage3.Controls.Add(this.Round3Chooser);
             this.tabPage3.Controls.Add(this.Round2Chooser);
             this.tabPage3.Controls.Add(this.Round1Chooser);
-            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.usedAP);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label5);
@@ -699,14 +711,104 @@
             this.tabPage3.Text = "Skills";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // Round5Description
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(27, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "AP Used: ";
+            this.Round5Description.AutoSize = true;
+            this.Round5Description.Location = new System.Drawing.Point(164, 286);
+            this.Round5Description.Name = "Round5Description";
+            this.Round5Description.Size = new System.Drawing.Size(41, 13);
+            this.Round5Description.TabIndex = 18;
+            this.Round5Description.Text = "label13";
+            // 
+            // Round4Description
+            // 
+            this.Round4Description.AutoSize = true;
+            this.Round4Description.Location = new System.Drawing.Point(164, 240);
+            this.Round4Description.Name = "Round4Description";
+            this.Round4Description.Size = new System.Drawing.Size(41, 13);
+            this.Round4Description.TabIndex = 17;
+            this.Round4Description.Text = "label12";
+            // 
+            // Round3Description
+            // 
+            this.Round3Description.AutoSize = true;
+            this.Round3Description.Location = new System.Drawing.Point(164, 194);
+            this.Round3Description.Name = "Round3Description";
+            this.Round3Description.Size = new System.Drawing.Size(41, 13);
+            this.Round3Description.TabIndex = 16;
+            this.Round3Description.Text = "label11";
+            // 
+            // Round2Description
+            // 
+            this.Round2Description.AutoSize = true;
+            this.Round2Description.Location = new System.Drawing.Point(164, 148);
+            this.Round2Description.Name = "Round2Description";
+            this.Round2Description.Size = new System.Drawing.Size(41, 13);
+            this.Round2Description.TabIndex = 15;
+            this.Round2Description.Text = "label10";
+            // 
+            // Round1Description
+            // 
+            this.Round1Description.AutoSize = true;
+            this.Round1Description.Location = new System.Drawing.Point(164, 102);
+            this.Round1Description.Name = "Round1Description";
+            this.Round1Description.Size = new System.Drawing.Size(35, 13);
+            this.Round1Description.TabIndex = 14;
+            this.Round1Description.Text = "label9";
+            // 
+            // Round5Chooser
+            // 
+            this.Round5Chooser.FormattingEnabled = true;
+            this.Round5Chooser.Location = new System.Drawing.Point(23, 282);
+            this.Round5Chooser.Name = "Round5Chooser";
+            this.Round5Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round5Chooser.TabIndex = 13;
+            this.Round5Chooser.SelectedIndexChanged += new System.EventHandler(this.Round5Chooser_SelectedIndexChanged);
+            // 
+            // Round4Chooser
+            // 
+            this.Round4Chooser.FormattingEnabled = true;
+            this.Round4Chooser.Location = new System.Drawing.Point(23, 236);
+            this.Round4Chooser.Name = "Round4Chooser";
+            this.Round4Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round4Chooser.TabIndex = 12;
+            this.Round4Chooser.SelectedIndexChanged += new System.EventHandler(this.Round4Chooser_SelectedIndexChanged);
+            // 
+            // Round3Chooser
+            // 
+            this.Round3Chooser.FormattingEnabled = true;
+            this.Round3Chooser.Location = new System.Drawing.Point(23, 190);
+            this.Round3Chooser.Name = "Round3Chooser";
+            this.Round3Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round3Chooser.TabIndex = 11;
+            this.Round3Chooser.SelectedIndexChanged += new System.EventHandler(this.Round3Chooser_SelectedIndexChanged);
+            // 
+            // Round2Chooser
+            // 
+            this.Round2Chooser.FormattingEnabled = true;
+            this.Round2Chooser.Location = new System.Drawing.Point(23, 144);
+            this.Round2Chooser.Name = "Round2Chooser";
+            this.Round2Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round2Chooser.TabIndex = 10;
+            this.Round2Chooser.SelectedIndexChanged += new System.EventHandler(this.Round2Chooser_SelectedIndexChanged);
+            // 
+            // Round1Chooser
+            // 
+            this.Round1Chooser.FormattingEnabled = true;
+            this.Round1Chooser.Location = new System.Drawing.Point(23, 98);
+            this.Round1Chooser.Name = "Round1Chooser";
+            this.Round1Chooser.Size = new System.Drawing.Size(121, 21);
+            this.Round1Chooser.TabIndex = 9;
+            this.Round1Chooser.SelectedIndexChanged += new System.EventHandler(this.Round1Chooser_SelectedIndexChanged);
+            // 
+            // usedAP
+            // 
+            this.usedAP.AutoSize = true;
+            this.usedAP.Location = new System.Drawing.Point(27, 14);
+            this.usedAP.Name = "usedAP";
+            this.usedAP.Size = new System.Drawing.Size(55, 13);
+            this.usedAP.TabIndex = 8;
+            this.usedAP.Text = "AP Used: ";
             // 
             // label7
             // 
@@ -780,95 +882,114 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Passive Skills";
             // 
-            // Round1Chooser
+            // tabPage4
             // 
-            this.Round1Chooser.FormattingEnabled = true;
-            this.Round1Chooser.Location = new System.Drawing.Point(23, 98);
-            this.Round1Chooser.Name = "Round1Chooser";
-            this.Round1Chooser.Size = new System.Drawing.Size(121, 21);
-            this.Round1Chooser.TabIndex = 9;
-            this.Round1Chooser.SelectedIndexChanged += new System.EventHandler(this.Round1Chooser_SelectedIndexChanged);
+            this.tabPage4.Controls.Add(this.radioButton5);
+            this.tabPage4.Controls.Add(this.radioButton4);
+            this.tabPage4.Controls.Add(this.radioButton3);
+            this.tabPage4.Controls.Add(this.radioButton2);
+            this.tabPage4.Controls.Add(this.radioButton1);
+            this.tabPage4.Controls.Add(this.button10);
+            this.tabPage4.Controls.Add(this.label8);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.EnemyChooser);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(585, 350);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Battle";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // Round2Chooser
+            // EnemyChooser
             // 
-            this.Round2Chooser.FormattingEnabled = true;
-            this.Round2Chooser.Location = new System.Drawing.Point(23, 144);
-            this.Round2Chooser.Name = "Round2Chooser";
-            this.Round2Chooser.Size = new System.Drawing.Size(121, 21);
-            this.Round2Chooser.TabIndex = 10;
-            this.Round2Chooser.SelectedIndexChanged += new System.EventHandler(this.Round2Chooser_SelectedIndexChanged);
+            this.EnemyChooser.FormattingEnabled = true;
+            this.EnemyChooser.Location = new System.Drawing.Point(245, 19);
+            this.EnemyChooser.Name = "EnemyChooser";
+            this.EnemyChooser.Size = new System.Drawing.Size(121, 21);
+            this.EnemyChooser.TabIndex = 0;
             // 
-            // Round3Chooser
+            // button3
             // 
-            this.Round3Chooser.FormattingEnabled = true;
-            this.Round3Chooser.Location = new System.Drawing.Point(23, 190);
-            this.Round3Chooser.Name = "Round3Chooser";
-            this.Round3Chooser.Size = new System.Drawing.Size(121, 21);
-            this.Round3Chooser.TabIndex = 11;
-            this.Round3Chooser.SelectedIndexChanged += new System.EventHandler(this.Round3Chooser_SelectedIndexChanged);
+            this.button3.Location = new System.Drawing.Point(35, 17);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Party Builder";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Round4Chooser
+            // label8
             // 
-            this.Round4Chooser.FormattingEnabled = true;
-            this.Round4Chooser.Location = new System.Drawing.Point(23, 236);
-            this.Round4Chooser.Name = "Round4Chooser";
-            this.Round4Chooser.Size = new System.Drawing.Size(121, 21);
-            this.Round4Chooser.TabIndex = 12;
-            this.Round4Chooser.SelectedIndexChanged += new System.EventHandler(this.Round4Chooser_SelectedIndexChanged);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(170, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "against";
             // 
-            // Round5Chooser
+            // button10
             // 
-            this.Round5Chooser.FormattingEnabled = true;
-            this.Round5Chooser.Location = new System.Drawing.Point(23, 282);
-            this.Round5Chooser.Name = "Round5Chooser";
-            this.Round5Chooser.Size = new System.Drawing.Size(121, 21);
-            this.Round5Chooser.TabIndex = 13;
-            this.Round5Chooser.SelectedIndexChanged += new System.EventHandler(this.Round5Chooser_SelectedIndexChanged);
+            this.button10.Location = new System.Drawing.Point(452, 17);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 3;
+            this.button10.Text = "Fight";
+            this.button10.UseVisualStyleBackColor = true;
             // 
-            // Round1Description
+            // radioButton1
             // 
-            this.Round1Description.AutoSize = true;
-            this.Round1Description.Location = new System.Drawing.Point(164, 102);
-            this.Round1Description.Name = "Round1Description";
-            this.Round1Description.Size = new System.Drawing.Size(35, 13);
-            this.Round1Description.TabIndex = 14;
-            this.Round1Description.Text = "label9";
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(209, 46);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(36, 17);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "x1";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // Round2Description
+            // radioButton2
             // 
-            this.Round2Description.AutoSize = true;
-            this.Round2Description.Location = new System.Drawing.Point(164, 148);
-            this.Round2Description.Name = "Round2Description";
-            this.Round2Description.Size = new System.Drawing.Size(41, 13);
-            this.Round2Description.TabIndex = 15;
-            this.Round2Description.Text = "label10";
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(251, 46);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(36, 17);
+            this.radioButton2.TabIndex = 5;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "x2";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // Round3Description
+            // radioButton3
             // 
-            this.Round3Description.AutoSize = true;
-            this.Round3Description.Location = new System.Drawing.Point(164, 194);
-            this.Round3Description.Name = "Round3Description";
-            this.Round3Description.Size = new System.Drawing.Size(41, 13);
-            this.Round3Description.TabIndex = 16;
-            this.Round3Description.Text = "label11";
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(293, 46);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(36, 17);
+            this.radioButton3.TabIndex = 6;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "x3";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // Round4Description
+            // radioButton4
             // 
-            this.Round4Description.AutoSize = true;
-            this.Round4Description.Location = new System.Drawing.Point(164, 240);
-            this.Round4Description.Name = "Round4Description";
-            this.Round4Description.Size = new System.Drawing.Size(41, 13);
-            this.Round4Description.TabIndex = 17;
-            this.Round4Description.Text = "label12";
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(335, 46);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(36, 17);
+            this.radioButton4.TabIndex = 7;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "x4";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // Round5Description
+            // radioButton5
             // 
-            this.Round5Description.AutoSize = true;
-            this.Round5Description.Location = new System.Drawing.Point(164, 286);
-            this.Round5Description.Name = "Round5Description";
-            this.Round5Description.Size = new System.Drawing.Size(41, 13);
-            this.Round5Description.TabIndex = 18;
-            this.Round5Description.Text = "label13";
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(377, 46);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(36, 17);
+            this.radioButton5.TabIndex = 8;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "x5";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -898,6 +1019,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -969,7 +1092,7 @@
         private System.Windows.Forms.ComboBox SkillChooser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label SkillDescription;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label usedAP;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -985,6 +1108,16 @@
         private System.Windows.Forms.Label Round3Description;
         private System.Windows.Forms.Label Round2Description;
         private System.Windows.Forms.Label Round1Description;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ComboBox EnemyChooser;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button button10;
     }
 }
 

@@ -65,7 +65,7 @@
             this.itemName.Location = new System.Drawing.Point(97, 12);
             this.itemName.Name = "itemName";
             this.itemName.Size = new System.Drawing.Size(184, 20);
-            this.itemName.TabIndex = 2;
+            this.itemName.TabIndex = 1;
             // 
             // itemAttack
             // 
@@ -261,7 +261,7 @@
             this.itemLevel.Location = new System.Drawing.Point(336, 11);
             this.itemLevel.Name = "itemLevel";
             this.itemLevel.Size = new System.Drawing.Size(68, 20);
-            this.itemLevel.TabIndex = 26;
+            this.itemLevel.TabIndex = 2;
             // 
             // EditItem
             // 

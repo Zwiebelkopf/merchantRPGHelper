@@ -100,16 +100,16 @@ namespace Merchant_RPG {
                     Skills.Round1 = skill;
                     break;
                 case '2':
-                    Skills.Round1 = skill;
+                    Skills.Round2 = skill;
                     break;
                 case '3':
-                    Skills.Round1 = skill;
+                    Skills.Round3 = skill;
                     break;
                 case '4':
-                    Skills.Round1 = skill;
+                    Skills.Round4 = skill;
                     break;
                 case '5':
-                    Skills.Round1 = skill;
+                    Skills.Round5 = skill;
                     break;
             }
         }
@@ -118,13 +118,13 @@ namespace Merchant_RPG {
             return Name;
         }
 
-        public double GetRealValue(string what) {
+        public double GetRealValue(string what, bool round) {
             double erg = 0;
 
             // Stats
             switch (what) {
                 case "Attack":
-                    erg = StartAttack + LevelAttack * (Level);
+                    erg += StartAttack + LevelAttack * (Level);
                     break;
                 case "MagicAttack":
                     erg += StartMagicAttack + LevelMagicAttack * (Level);
@@ -145,6 +145,9 @@ namespace Merchant_RPG {
                     erg += StartHP + Level * LevelHP;
                     break;
             }
+
+            if (round)
+                erg = Math.Round(erg, 0);
 
             // Items
             foreach (var entry in Inventar.ToArray()) {
@@ -183,16 +186,40 @@ namespace Merchant_RPG {
                 }
             }
 
+            if (round)
+                erg = Math.Round(erg, 0);
+
             // Skills
             if (Skills.Passive != null) {
                 switch (what) {
+                    case "Attack":
+                        erg *= Skills.Passive.RaisePatk;
+                        break;
+                    case "MagicAttack":
+                        erg *= Skills.Passive.RaiseMatk;
+                        break;
+                    case "Accuracy":
+                        erg *= Skills.Passive.RaiseAcc + Skills.Passive.PlusAcc;
+                        break;
+                    case "Defense":
+                        erg *= Skills.Passive.RaisePdef;
+                        break;
+                    case "MagicDefense":
+                        erg *= Skills.Passive.RaiseMdef;
+                        break;
+                    case "Critical":
+                        erg *= Skills.Passive.RaiseCritChc + Skills.Passive.PlusCritChc;
+                        break;
                     case "HP":
-                        erg = erg * Skills.Passive.RaiseHP;
+                        erg *= Skills.Passive.RaiseHP;
                         break;
                 }
             }
 
-            return erg;
+            if (round)
+                return Math.Round(erg, 0);
+            else
+                return erg;
         }
 
     }

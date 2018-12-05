@@ -29,5 +29,9 @@ namespace Merchant_RPG {
             this.MagicDefense = magicDefense;
             this.HP = hp;
         }
+
+        public override string ToString() {
+            return Name;
+        }
     }
 }

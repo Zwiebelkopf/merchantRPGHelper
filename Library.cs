@@ -197,9 +197,9 @@ namespace Merchant_RPG {
             new Skill("Intellect", false, 0, new int[] {2,4,11,13,20,22}, desc:"Passively increase Matk by 10%", raisematk:1.1),
             new Skill("Wisdom", false, 0, new int[] {2,4,7,8,11,13,16,17,20,22,25,26}, desc:"Passively increase Ap by 2"), // MISSING
             new Skill("Mind", false, 0, new int[] {2,4,6,11,13,15,20,22,24}, desc:"Passively increase Mdef & Acc by 10%", raisemdef:1.1, raiseacc:1.1),
-            new Skill("Critical Eye", false, 0, new int[] {3,5,12,14,21,23}, desc:"Passively increase Crit Chance by 12%"), // MISSING
+            new Skill("Critical Eye", false, 0, new int[] {3,5,12,14,21,23}, desc:"Passively increase Crit Chance by 12%", raisecritchc:1.12),
             new Skill("Dark Arts", false, 0, new int[] {7,16,25}, desc:"Passively increase Atk & Matk by 9%", raisepatk:1.09, raisematk:1.09),
-            new Skill("Dark Precision", false, 0, new int[] {7,16,25}, desc:"Passively increase Acc by 50 and Crit by 10"), // MISSING
+            new Skill("Dark Precision", false, 0, new int[] {7,16,25}, desc:"Passively increase Acc by 50 and Crit by 10", plusacc:50, pluscritchc:10),
             new Skill("Consolidate", false, 0, new int[] {8,17,26}, desc:"Passively increase Def and Mdef by 5%", raisepdef:1.05, raisemdef:1.05),
             /*warrior*/
             new Skill("Basic", true, 0, new int[] {}, desc:"Deal 1x Atk & 1x Matk", dealpatk:1, dealmatk:1),

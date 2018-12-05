@@ -19,11 +19,14 @@ namespace Merchant_RPG {
         private int selectedHeroList;
         private Library bibo = new Library();
         private EditItem editItem;
+        private PartyBuilder party;
         private List<Hero> activeHeroes = new List<Hero>();
+        private Dictionary<int, Hero> gruppe;
 
         public Form1() {
             InitializeComponent();
             Fill_HeroChooser();
+            Fill_EnemyChooser();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -163,18 +166,18 @@ namespace Merchant_RPG {
         #region Tabpage1 => Attribute
 
         private void updateStats() {
-            att_patk.Text = activeHero.GetRealValue("Attack").ToString();
-            att_matk.Text = activeHero.GetRealValue("MagicAttack").ToString();
-            att_acc.Text = activeHero.GetRealValue("Accuracy").ToString();
-            att_crit.Text = activeHero.GetRealValue("Critical").ToString(); 
-            att_mdef.Text = activeHero.GetRealValue("MagicDefense").ToString();
-            att_pdef.Text = activeHero.GetRealValue("Defense").ToString();
-            att_str.Text = activeHero.GetRealValue("Strength").ToString();
-            att_int.Text = activeHero.GetRealValue("Intelligence").ToString();
-            att_dex.Text = activeHero.GetRealValue("Dexterity").ToString();
-            maxHP.Text = activeHero.GetRealValue("HP").ToString();
-            att_dmg.Text = (double.Parse(att_patk.Text) + double.Parse(att_matk.Text)).ToString();
-        }
+            att_patk.Text = activeHero.GetRealValue("Attack", true).ToString();
+            att_matk.Text = activeHero.GetRealValue("MagicAttack", true).ToString();
+            att_acc.Text = activeHero.GetRealValue("Accuracy", true).ToString();
+            att_crit.Text = activeHero.GetRealValue("Critical", true).ToString(); 
+            att_mdef.Text = activeHero.GetRealValue("MagicDefense", true).ToString();
+            att_pdef.Text = activeHero.GetRealValue("Defense", true).ToString();
+            att_str.Text = activeHero.GetRealValue("Strength", true).ToString();
+            att_int.Text = activeHero.GetRealValue("Intelligence", true).ToString();
+            att_dex.Text = activeHero.GetRealValue("Dexterity", true).ToString();
+            maxHP.Text = activeHero.GetRealValue("HP", true).ToString();
+            att_dmg.Text = Math.Round(activeHero.GetRealValue("Attack", false) + activeHero.GetRealValue("MagicAttack", false),0).ToString(); //(double.Parse(att_patk.Text) + double.Parse(att_matk.Text)).ToString();
+         }
 
         private void LevelPicker_SelectedItemChanged(object sender, EventArgs e) {
             activeHero.Level = int.Parse(LevelPicker.Text);
@@ -198,7 +201,6 @@ namespace Merchant_RPG {
 
         private void button4_Click(object sender, EventArgs e) {
             // Change Weapon
-            Equip_weapon_label.Text = "Dies ist ein langer Text um zu prüfen,\nwas genau das Programm damit macht.";
             editItem = new EditItem(this, ItemSlot.Weapon, activeHero.Inventar.GetSlot(ItemSlot.Weapon));
             editItem.Show();
         }
@@ -285,37 +287,63 @@ namespace Merchant_RPG {
             Skill temp = (Skill)Round1Chooser.SelectedItem;
             Round1Description.Text = temp.Description;
             activeHero.SelectSkill('1', temp);
+            UpdateAPInfo();
         }
 
         private void Round2Chooser_SelectedIndexChanged(object sender, EventArgs e) {
             Skill temp = (Skill)Round2Chooser.SelectedItem;
             Round2Description.Text = temp.Description;
             activeHero.SelectSkill('2', temp);
+            UpdateAPInfo();
         }
 
         private void Round3Chooser_SelectedIndexChanged(object sender, EventArgs e) {
             Skill temp = (Skill)Round3Chooser.SelectedItem;
             Round3Description.Text = temp.Description;
             activeHero.SelectSkill('3', temp);
+            UpdateAPInfo();
         }
 
         private void Round4Chooser_SelectedIndexChanged(object sender, EventArgs e) {
             Skill temp = (Skill)Round4Chooser.SelectedItem;
             Round4Description.Text = temp.Description;
             activeHero.SelectSkill('4', temp);
+            UpdateAPInfo();
         }
 
         private void Round5Chooser_SelectedIndexChanged(object sender, EventArgs e) {
             Skill temp = (Skill)Round5Chooser.SelectedItem;
             Round5Description.Text = temp.Description;
             activeHero.SelectSkill('5', temp);
+            UpdateAPInfo();
+        }
+
+        private void UpdateAPInfo() {
+            usedAP.Text = "AP used: " + activeHero.Skills.info(activeHero.Level);
         }
         #endregion
 
-        
+
+        #region TabPage4 => Battles
+
+        public void Fill_EnemyChooser() {
+            foreach (Monster mon in bibo.Monsters) {
+                EnemyChooser.Items.Add(mon);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            party = new PartyBuilder(this, HeroList);
+            party.Show();
+        }
+
+        public void PartyUp(Dictionary<int, Hero> gruppe) {
+            this.gruppe = gruppe;
+            label8.Text = gruppe.Count + " against";
+        }
+
+        #endregion
 
         
-
-
     }
 }

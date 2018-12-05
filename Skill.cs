@@ -33,18 +33,37 @@ namespace Merchant_RPG {
                     Round1 = skill;
                     break;
                 case '2':
-                    Round1 = skill;
+                    Round2 = skill;
                     break;
                 case '3':
-                    Round1 = skill;
+                    Round3 = skill;
                     break;
                 case '4':
-                    Round1 = skill;
+                    Round4 = skill;
                     break;
                 case '5':
-                    Round1 = skill;
+                    Round5 = skill;
                     break;
             }
+        }
+
+        public string info(int level) {
+            int maxAP = 0;
+
+            if (level > 10)
+                maxAP = level / 2;
+            if (level > 40)
+                maxAP = 20;
+
+            int curAP = 0;
+
+            curAP += Round1.Cost;
+            curAP += Round2.Cost;
+            curAP += Round3.Cost;
+            curAP += Round4.Cost;
+            curAP += Round5.Cost;
+
+            return curAP + "/" + maxAP;
         }
     }
 
@@ -66,6 +85,10 @@ namespace Merchant_RPG {
         public double RaiseHP;
         public double RaiseAcc;
         public double RaiseCritDmg;
+        public double RaiseCritChc;
+
+        public double PlusAcc;
+        public double PlusCritChc;
 
         public double DealPatk;
         public double DealMatk;
@@ -81,9 +104,9 @@ namespace Merchant_RPG {
         public Skill() { }
 
         public Skill(string name, bool isactive, int cost, int[] hero_ids, string desc = "", double raisepatk = 1, double raisematk = 1, double raisepdef = 1, 
-            double raisemdef = 1, double raisehp = 1, double raiseacc = 1, double raisecritdmg = 1, double dealpatk = 0, double dealmatk = 0, double dealacc = 0,
-            double dealdef = 0, double dealtrue = 0, int duration = 0,
-            double buffpatk = 1, double buffdef = 1, bool ignoredmg = false) {
+            double raisemdef = 1, double raisehp = 1, double raiseacc = 1, double raisecritdmg = 1, double raisecritchc = 1,
+            double dealpatk = 0, double dealmatk = 0, double dealacc = 0, double dealdef = 0, double dealtrue = 0, int duration = 0,
+            double buffpatk = 1, double buffdef = 1, bool ignoredmg = false, double plusacc = 0, double pluscritchc = 0) {
             Name = name;
             IsActive = isactive;
             Cost = cost;
@@ -98,6 +121,10 @@ namespace Merchant_RPG {
             RaiseHP = raisehp;
             RaiseAcc = raiseacc;
             RaiseCritDmg = raisecritdmg;
+            RaiseCritChc = raisecritchc;
+
+            PlusAcc = plusacc;
+            PlusCritChc = pluscritchc;
 
             DealPatk = dealpatk;
             DealMatk = dealmatk;
@@ -112,7 +139,7 @@ namespace Merchant_RPG {
         }
 
         public override string ToString() {
-            return Name;
+            return Name + " Cost: " + Cost;
         }
     }
 }
