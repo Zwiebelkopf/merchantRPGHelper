@@ -104,15 +104,16 @@
             this.SkillChooser = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.EnemyChooser = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button10 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.EnemyChooser = new System.Windows.Forms.ComboBox();
+            this.FightingLog = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -884,6 +885,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.FightingLog);
             this.tabPage4.Controls.Add(this.radioButton5);
             this.tabPage4.Controls.Add(this.radioButton4);
             this.tabPage4.Controls.Add(this.radioButton3);
@@ -900,13 +902,76 @@
             this.tabPage4.Text = "Battle";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // EnemyChooser
+            // radioButton5
             // 
-            this.EnemyChooser.FormattingEnabled = true;
-            this.EnemyChooser.Location = new System.Drawing.Point(245, 19);
-            this.EnemyChooser.Name = "EnemyChooser";
-            this.EnemyChooser.Size = new System.Drawing.Size(121, 21);
-            this.EnemyChooser.TabIndex = 0;
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(377, 46);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(36, 17);
+            this.radioButton5.TabIndex = 8;
+            this.radioButton5.Text = "x5";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(335, 46);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(36, 17);
+            this.radioButton4.TabIndex = 7;
+            this.radioButton4.Text = "x4";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(293, 46);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(36, 17);
+            this.radioButton3.TabIndex = 6;
+            this.radioButton3.Text = "x3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(251, 46);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(36, 17);
+            this.radioButton2.TabIndex = 5;
+            this.radioButton2.Text = "x2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(209, 46);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(36, 17);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "x1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(452, 17);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 3;
+            this.button10.Text = "Fight";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(170, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "against";
             // 
             // button3
             // 
@@ -918,78 +983,21 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label8
+            // EnemyChooser
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(170, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "against";
+            this.EnemyChooser.FormattingEnabled = true;
+            this.EnemyChooser.Location = new System.Drawing.Point(245, 19);
+            this.EnemyChooser.Name = "EnemyChooser";
+            this.EnemyChooser.Size = new System.Drawing.Size(121, 21);
+            this.EnemyChooser.TabIndex = 0;
             // 
-            // button10
+            // FightingLog
             // 
-            this.button10.Location = new System.Drawing.Point(452, 17);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "Fight";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(209, 46);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(36, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "x1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(251, 46);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(36, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "x2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(293, 46);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(36, 17);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "x3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(335, 46);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(36, 17);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "x4";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(377, 46);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(36, 17);
-            this.radioButton5.TabIndex = 8;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "x5";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.FightingLog.Location = new System.Drawing.Point(35, 85);
+            this.FightingLog.Multiline = true;
+            this.FightingLog.Name = "FightingLog";
+            this.FightingLog.Size = new System.Drawing.Size(532, 249);
+            this.FightingLog.TabIndex = 9;
             // 
             // Form1
             // 
@@ -1118,6 +1126,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox FightingLog;
     }
 }
 

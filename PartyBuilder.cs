@@ -163,6 +163,7 @@ namespace Merchant_RPG {
 
         private void button1_Click(object sender, EventArgs e) {
             if (GoodToGo.Text == "Cancel") {
+                parent.PartyUp(null);
                 this.Close();
             }
             else {

@@ -342,7 +342,39 @@ namespace Merchant_RPG {
             label8.Text = gruppe.Count + " against";
         }
 
+        // Battle Area
+        private void button10_Click(object sender, EventArgs e) {
+            if (gruppe != null && EnemyChooser.SelectedItem != null) {
+
+                Monster mon = (Monster)EnemyChooser.SelectedItem;
+                double temp = 0;
+                int runde = 1;
+
+                while (mon.HP > 0) {
+                    // party attacks 
+                    foreach (KeyValuePair<int, Hero> entry in gruppe) {
+                        // do something with entry.Value or entry.Key
+
+                        temp = (100.0 / (100.0 + mon.Defense)) * (entry.Value.GetRealValue("Attack", false) * 1);
+                        //Damage=100100+Enemy Defense×(Hero Attack×Skill Modifier)
+
+                        FightingLog.Text += entry.Value.Name + " dealt " + temp + " damage." + Environment.NewLine;
+                    }
+                    // enemy attacks
+                    runde++;
+                }
+                
+
+            }
+            else if (gruppe == null)
+                MessageBox.Show("No party created.");
+            else if (EnemyChooser.SelectedItem == null)
+                MessageBox.Show("No enemy selected.");
+        }
+
         #endregion
+
+        
 
         
     }
