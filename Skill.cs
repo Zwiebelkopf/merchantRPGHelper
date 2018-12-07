@@ -16,6 +16,9 @@ namespace Merchant_RPG {
         public Skill Round5;
 
         public HeroSkills() {
+            /*Library bibo = new Library();
+            Skill skill = bibo.Skills.First(x => x.Name.Equals("Basic"));*/
+
             Passive = null;
             Round1 = null;
             Round2 = null;
@@ -57,11 +60,11 @@ namespace Merchant_RPG {
 
             int curAP = 0;
 
-            curAP += Round1.Cost;
-            curAP += Round2.Cost;
-            curAP += Round3.Cost;
-            curAP += Round4.Cost;
-            curAP += Round5.Cost;
+            curAP += Round1 != null ? Round1.Cost : 0;
+            curAP += Round2 != null ? Round2.Cost : 0;
+            curAP += Round3 != null ? Round3.Cost : 0;
+            curAP += Round4 != null ? Round4.Cost : 0;
+            curAP += Round5 != null ? Round5.Cost : 0;
 
             return curAP + "/" + maxAP;
         }

@@ -9,7 +9,7 @@ namespace Merchant_RPG {
     [System.Xml.Serialization.XmlInclude(typeof(Equipment))]
     [System.Xml.Serialization.XmlInclude(typeof(HeroSkills))]
     public class Hero {
-        public readonly int Id;
+        public int Id;
         public string Name;
         public int Level;
         public double Strength;
@@ -114,6 +114,30 @@ namespace Merchant_RPG {
             }
         }
 
+        public Skill GetSkill(int round) {
+            Skill erg = null;
+
+            switch (round) {
+                case 1:
+                    erg = Skills.Round1;
+                    break;
+                case 2:
+                    erg = Skills.Round2;
+                    break;
+                case 3:
+                    erg = Skills.Round3;
+                    break;
+                case 4:
+                    erg = Skills.Round4;
+                    break;
+                case 0:
+                    erg = Skills.Round5;
+                    break;
+            }
+
+            return erg;
+        }
+
         public override string ToString() {
             return Name;
         }
@@ -154,13 +178,13 @@ namespace Merchant_RPG {
                 switch (what) {
                     case "Attack":
                         // reiner Attack Value
-                        erg += entry.Attack + entry.Strength;
+                        erg += entry.Attack + entry.Strength * Strength;
                         break;
                     case "MagicAttack":
-                        erg += entry.MagicAttack + entry.Intelligence;
+                        erg += entry.MagicAttack + entry.Intelligence * Intelligence;
                         break;
                     case "Accuracy":
-                        erg += entry.Accuracy + entry.Dexterity;
+                        erg += entry.Accuracy + entry.Dexterity * Dexterity;
                         break;
                     case "Defense":
                         erg += entry.Defense;

@@ -22,11 +22,13 @@ namespace Merchant_RPG {
         private PartyBuilder party;
         private List<Hero> activeHeroes = new List<Hero>();
         private Dictionary<int, Hero> gruppe;
+        public Skill basicSkill;
 
         public Form1() {
             InitializeComponent();
             Fill_HeroChooser();
             Fill_EnemyChooser();
+            basicSkill = bibo.Skills.First(x => x.Name.Equals("Basic"));
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -52,9 +54,9 @@ namespace Merchant_RPG {
                 selectedHeroList = HeroList.SelectedIndex;
                 HeroNameLabel.Text = activeHero.Name;
                 LevelPicker.SelectedIndex = activeHero.Level - 1;
-                updateStats();
                 updateEquipment();
                 Fill_SkillChooser();
+                updateStats();
             }
         }
 
@@ -269,11 +271,16 @@ namespace Merchant_RPG {
                 Round5Chooser.Items.Add(entry);
             }
 
-            Round1Chooser.SelectedItem = activeHero.Skills.Round1;
-            Round2Chooser.SelectedItem = activeHero.Skills.Round2;
-            Round3Chooser.SelectedItem = activeHero.Skills.Round3;
-            Round4Chooser.SelectedItem = activeHero.Skills.Round4;
-            Round5Chooser.SelectedItem = activeHero.Skills.Round5;
+            // Set the Skills
+            if (activeHero.Skills.Passive != null) {
+                SkillChooser.SelectedItem = SkillChooser.FindString(activeHero.Skills.Passive.Name);
+            }
+            Skill temp = bibo.Skills.First(x => x.Name.Equals("Basic"));
+            Round1Chooser.SelectedIndex = Round1Chooser.FindString((activeHero.Skills.Round1 ?? temp).Name);
+            Round2Chooser.SelectedIndex = Round2Chooser.FindString((activeHero.Skills.Round2 ?? temp).Name);
+            Round3Chooser.SelectedIndex = Round3Chooser.FindString((activeHero.Skills.Round3 ?? temp).Name);
+            Round4Chooser.SelectedIndex = Round4Chooser.FindString((activeHero.Skills.Round4 ?? temp).Name);
+            Round5Chooser.SelectedIndex = Round5Chooser.FindString((activeHero.Skills.Round5 ?? temp).Name);
         }
 
         private void SkillChooser_SelectedIndexChanged(object sender, EventArgs e) {
@@ -344,32 +351,23 @@ namespace Merchant_RPG {
 
         // Battle Area
         private void button10_Click(object sender, EventArgs e) {
+            bool empty = false;
+            if (gruppe == null && activeHero != null) {
+                this.gruppe = new Dictionary<int, Hero>();
+                this.gruppe.Add(4, activeHero);
+                empty = true;
+            }
+
             if (gruppe != null && EnemyChooser.SelectedItem != null) {
-
-                Monster mon = (Monster)EnemyChooser.SelectedItem;
-                double temp = 0;
-                int runde = 1;
-
-                while (mon.HP > 0) {
-                    // party attacks 
-                    foreach (KeyValuePair<int, Hero> entry in gruppe) {
-                        // do something with entry.Value or entry.Key
-
-                        temp = (100.0 / (100.0 + mon.Defense)) * (entry.Value.GetRealValue("Attack", false) * 1);
-                        //Damage=100100+Enemy Defense×(Hero Attack×Skill Modifier)
-
-                        FightingLog.Text += entry.Value.Name + " dealt " + temp + " damage." + Environment.NewLine;
-                    }
-                    // enemy attacks
-                    runde++;
-                }
-                
-
+                Battle fight = new Battle(this, gruppe, (Monster)EnemyChooser.SelectedItem);
+                FightingLog.Text = fight.Fight();
             }
             else if (gruppe == null)
                 MessageBox.Show("No party created.");
             else if (EnemyChooser.SelectedItem == null)
                 MessageBox.Show("No enemy selected.");
+
+            gruppe = empty ? null : gruppe;
         }
 
         #endregion

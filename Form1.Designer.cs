@@ -104,6 +104,7 @@
             this.SkillChooser = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.FightingLog = new System.Windows.Forms.TextBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -113,7 +114,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.EnemyChooser = new System.Windows.Forms.ComboBox();
-            this.FightingLog = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -902,6 +902,15 @@
             this.tabPage4.Text = "Battle";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // FightingLog
+            // 
+            this.FightingLog.Location = new System.Drawing.Point(35, 85);
+            this.FightingLog.Multiline = true;
+            this.FightingLog.Name = "FightingLog";
+            this.FightingLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.FightingLog.Size = new System.Drawing.Size(532, 249);
+            this.FightingLog.TabIndex = 9;
+            // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
@@ -990,14 +999,6 @@
             this.EnemyChooser.Name = "EnemyChooser";
             this.EnemyChooser.Size = new System.Drawing.Size(121, 21);
             this.EnemyChooser.TabIndex = 0;
-            // 
-            // FightingLog
-            // 
-            this.FightingLog.Location = new System.Drawing.Point(35, 85);
-            this.FightingLog.Multiline = true;
-            this.FightingLog.Name = "FightingLog";
-            this.FightingLog.Size = new System.Drawing.Size(532, 249);
-            this.FightingLog.TabIndex = 9;
             // 
             // Form1
             // 
